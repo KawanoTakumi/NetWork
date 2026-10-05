@@ -15,6 +15,8 @@ WeaponBaseItem::WeaponBaseItem(int _WeaponID,int _Weapon_No,Point p,CMap* _map)
 	sprite.scale = 2.0f;
 	//武器毎に切り取り位置を変更する
 	CutSprite(weapon_id,weapon_no);
+
+	isPushE = CheckHitKey(KEY_INPUT_E);
 }
 
 int WeaponBaseItem::Action(const ObjList& base, ObjList& add_list)
@@ -30,7 +32,7 @@ int WeaponBaseItem::Action(const ObjList& base, ObjList& add_list)
 			{
 				if(!isHit)
 				isHit = true;
-				if (CheckHitKey(KEY_INPUT_E))
+				if (CheckHitKey(KEY_INPUT_E) && !isPushE)
 				{
 					isGet = true;//取得フラグ有効化
 				}
@@ -50,6 +52,8 @@ int WeaponBaseItem::Action(const ObjList& base, ObjList& add_list)
 			}
 		}
 	}
+
+	isPushE = CheckHitKey(KEY_INPUT_E);
 
 	return 0;
 }

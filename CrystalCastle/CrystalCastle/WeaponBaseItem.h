@@ -15,4 +15,5 @@ private:
 	int weapon_no = { -1 };//•Ší‚Ì”Ô†ID(Œ•‚Ì0”ÔA1”Ô‚È‚Ç)
 	bool isHit = false;
 	bool isGet = false;
+	bool isPushE = false;
 };
