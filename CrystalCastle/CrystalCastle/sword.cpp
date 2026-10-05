@@ -58,7 +58,7 @@ int CSword::Action(const ObjList& base, ObjList& add_base)
 			if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
 			{
 				CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
-				obj->Damage(calc_damage,vec,10);
+				obj->Damage(calc_damage, { 0,0 });
 			}
 		}
 	}

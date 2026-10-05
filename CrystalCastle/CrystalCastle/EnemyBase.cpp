@@ -10,6 +10,8 @@ EnemyBase::EnemyBase(Point p, CMap* _map)
 	sprite.width = ImgWidth = 32;
 	sprite.height = ImgHeight = 32;
 
+	HP(3);//HP初期化
+
 	map = _map;
 
 	pos = p;
@@ -19,6 +21,16 @@ EnemyBase::EnemyBase(Point p, CMap* _map)
 
 int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 {
+
+	//無敵時間
+	if (damageCoolTime > 0)damageCoolTime--;
+
+	//HPがなくなった場合、オブジェクト解除
+	if (hp <= 0)FLAG = false;
+
+	//ノックバック処理
+	if (UpdateKnockBack(map))return 0;
+
 	return 0;
 }
 

@@ -1,38 +1,43 @@
-﻿  damageObj.cpp
+﻿  CollisionUpDate.cpp
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(38,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(38,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(55,9): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(55,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(52,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(52,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(68,10): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(68,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(65,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(65,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
-C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(115,45): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(111,45): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
-C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(116,47): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'damageObj.cpp' をコンパイルしています)
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\objBase.h(112,47): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'CollisionUpDate.cpp' をコンパイルしています)
   
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\CollisionUpDate.cpp(80,12): warning C4838: 'double' から 'float' への変換には縮小変換が必要です
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\CollisionUpDate.cpp(80,12): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\CollisionUpDate.cpp(81,12): warning C4838: 'double' から 'float' への変換には縮小変換が必要です
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\CollisionUpDate.cpp(81,12): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\takum\Desktop\NetWork\CrystalCastle\CrystalCastle\CollisionUpDate.cpp(88,13): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
   CrystalCastle.vcxproj -> C:\Users\takum\Desktop\NetWork\CrystalCastle\x64\Debug\CrystalCastle.exe

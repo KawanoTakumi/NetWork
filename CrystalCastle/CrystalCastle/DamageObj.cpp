@@ -39,11 +39,17 @@ bool CDamageObj::UpdateKnockBack(CMap* _map) {
 
 }
 
-//ダメージ処理
-void CDamageObj::Damage(int dm, Vector v, int invisible = 10)
+//体力初期化
+void CDamageObj::HP(int _hp)
 {
-		//if (damageCoolTime > 0) return;
-		//hp -= dm;
-		//KnockBack(v);
-		//damageCoolTime = invisible;
+	hp = maxHp = _hp;
+}
+
+//ダメージ処理
+void CDamageObj::Damage(int dm, Vector v)
+{
+	if (damageCoolTime > 0) return;
+	hp -= dm;
+	KnockBack(v);
+	damageCoolTime = 10;// 10フレーム無敵
 }

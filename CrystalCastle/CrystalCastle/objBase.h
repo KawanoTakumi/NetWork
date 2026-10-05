@@ -88,12 +88,8 @@ public:
 	CMap* map{ nullptr };
 
 	//基本情報
-	int hp{ 0 };
-	int maxHp{ 0 };
 	int ItemID{ -1 };//アイテムのID・・・ObjIDとは別
 
-	//無敵時間
-	int damageCoolTime{ 0 };
 
 	//タイマー
 	int moveTimer{ 0 };

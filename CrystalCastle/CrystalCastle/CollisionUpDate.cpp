@@ -21,6 +21,9 @@ void CollisionUpDate(ObjList& base) {
 				Player_Enemy_Collision(a, b);
 			}
 
+			if (a->ID == (int)ObjID::WEAPON && b->ID == (int)ObjID::ENEMY) {
+				Weapon_Enemy_Collison(a, b);
+			}
 
 
 			/*
@@ -65,11 +68,12 @@ void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 }
 
 //“G‚Æ•Ší‚Ì‚ ‚½‚è”»’è
-void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
+void Weapon_Enemy_Collison(BaseVector* a, BaseVector* b)
 {
-	float enemyRad = 16;
+	//Œ»óŒ•‚Ì‚İ‘Î‰
 
-	CSword* s = dynamic_cast<CSword*>(b);
+	float enemyRad = 16;
+	CSword* s = dynamic_cast<CSword*>(a);
 
 	Point swordStart{ s->pos.x,s->pos.y };
 
@@ -78,4 +82,24 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 		s->pos.x + cos(s->sprite.angle) * s->SWORD_LENGTH,
 		s->pos.y + sin(s->sprite.angle) * s->SWORD_LENGTH
 	};
+
+	Point lp = Position_Closest_Line(a->pos, swordStart, swordEnd);
+
+	float dx = a->pos.x - lp.x;
+	float dy = a->pos.y - lp.y;
+	float dist = sqrt(dx * dx + dy * dy);
+
+	if (dist <= enemyRad)
+	{
+		CDamageObj* enemy = dynamic_cast<CDamageObj*>(b);
+
+		Vector v
+		{
+			enemy->pos.x - s->pos.x,
+			enemy->pos.y - s->pos.y
+		};
+		v = Vector_SetLength(v, 15);
+		enemy->Damage(s->calc_damage, v);
+;
+	}
 }

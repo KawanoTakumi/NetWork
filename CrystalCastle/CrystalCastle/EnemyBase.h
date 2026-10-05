@@ -2,9 +2,10 @@
 //エネミーベースh
 
 #include "objBase.h"
+#include "damageObj.h"
 #include "map.h"
 
-class EnemyBase : public BaseVector
+class EnemyBase : public CDamageObj
 {
 public:
 	EnemyBase(Point, CMap*);
