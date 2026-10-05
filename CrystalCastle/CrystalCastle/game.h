@@ -7,13 +7,15 @@
 
 #include "map.h"
 
+
 class CGame :public CScene
 {
 private:
+	const int MAX_TREASURE_COUNT = 100;//宝物を生成する最大値
+
 public:
 	//オブジェクト
 	ObjList base;
-
 	//マップオブジェクト
 	unique_ptr<CMap> map;
 
@@ -39,5 +41,4 @@ public:
 		for (auto& x : obj)
 			base.push_back(move(x));
 	}
-	//CCamera* camera;//カメラオブジェクト
 };

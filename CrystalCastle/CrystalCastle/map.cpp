@@ -21,7 +21,7 @@ vector<string> split(string& input, char delimiter)
 //コンストラクタ
 CMap::CMap() {
 	//マップチップ画像
-	img = Resource::map_img;
+	img = Resource::mapImg;
 
 	//マップ配列初期化
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
@@ -128,7 +128,7 @@ bool CMap::CanMove(Point p, int width, int height) {
 //指定したマップチップが壁かどうかを判定
 bool CMap::IsWall(int chip)
 {
-	return (chip != 0 && chip != 9 && chip != 27 && chip != 28 && chip != 18 && chip!=30);
+	return (chip != 0 && chip != 9 && chip != 27 && chip != 28 && chip != 18 && chip != 30);
 }
 
 //マップ描画

@@ -63,10 +63,8 @@ Point Position_Closest_Line(Point p, Point s, Point e)
 
 	Vector AP = Sub_Point_Point(P, A);//点から始点までのベクトル
 	float t = (AP.x * n.x + AP.y * n.y) / (n.x * n.x + n.y * n.y);//投影係数
-
 	if (t < 0)t = 0;//0より小さい場合は始点
 	if (t > 1)t = 1.0f;//１より大きい場合は終点
-
 	Q = Add_Point_Vector(A, Mul_Vector_Scaler(n, t));//直線上の点
 
 	return Q;

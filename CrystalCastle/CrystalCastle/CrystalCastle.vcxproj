@@ -154,33 +154,46 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="3D_function.h" />
+    <ClInclude Include="bow.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="2D_function.h" />
     <ClInclude Include="CollisionUpdate.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="libID.h" />
     <ClInclude Include="library_function.h" />
+    <ClInclude Include="magic.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="objBase.h" />
     <ClInclude Include="objChar.h" />
     <ClInclude Include="objID.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene_Base.h" />
     <ClInclude Include="Scene_Manager.h" />
+    <ClInclude Include="sword.h" />
+    <ClInclude Include="TreasureBaseItem.h" />
+    <ClInclude Include="WeaponBaseItem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3D_function.cpp" />
+    <ClCompile Include="bow.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="2D_function.cpp" />
     <ClCompile Include="CollisionUpDate.cpp" />
     <ClCompile Include="function.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="library_function.cpp" />
+    <ClCompile Include="magic.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="Resoure.cpp" />
+    <ClCompile Include="sword.cpp" />
+    <ClCompile Include="TreasureBaseItem.cpp" />
+    <ClCompile Include="WeaponBaseItem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

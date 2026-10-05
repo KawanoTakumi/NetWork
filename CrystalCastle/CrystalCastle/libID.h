@@ -12,7 +12,6 @@ enum class DIR {
 	RIGHT_UP
 };
 
-
 //ゲームパッド用(デフォルト)
 enum class libID{
 	BUTTON_UP,

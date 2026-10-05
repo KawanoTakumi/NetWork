@@ -27,6 +27,24 @@
     <Filter Include="ライブラリ用ソースファイル">
       <UniqueIdentifier>{e93d6900-d129-4c3f-acbd-1f8be7236993}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\オブジェクト\アイテム">
+      <UniqueIdentifier>{cf1415c9-dd23-45c2-aab4-5238bcf525c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\オブジェクト\アイテム">
+      <UniqueIdentifier>{cbb228c6-db01-42e4-9498-395790c51447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\オブジェクト\敵">
+      <UniqueIdentifier>{cd56b4de-f12d-40ce-8bd5-0a4cc2a0795c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\オブジェクト\敵">
+      <UniqueIdentifier>{7ad74064-515d-4314-a19a-1b218f0c476e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\オブジェクト\プレイヤー">
+      <UniqueIdentifier>{837a2da8-ac74-48c1-b600-5911286e87f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\オブジェクト\プレイヤー">
+      <UniqueIdentifier>{ac4d9ac4-6cd0-4eab-a3db-75e53b0e7ae4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -77,6 +95,27 @@
     <ClInclude Include="CollisionUpdate.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="TreasureBaseItem.h">
+      <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponBaseItem.h">
+      <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="bow.h">
+      <Filter>ヘッダー ファイル\オブジェクト\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="magic.h">
+      <Filter>ヘッダー ファイル\オブジェクト\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>ヘッダー ファイル\オブジェクト\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="sword.h">
+      <Filter>ヘッダー ファイル\オブジェクト\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>ヘッダー ファイル\オブジェクト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -108,6 +147,24 @@
     </ClCompile>
     <ClCompile Include="CollisionUpDate.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TreasureBaseItem.cpp">
+      <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponBaseItem.cpp">
+      <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="bow.cpp">
+      <Filter>ソース ファイル\オブジェクト\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="magic.cpp">
+      <Filter>ソース ファイル\オブジェクト\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>ソース ファイル\オブジェクト\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="sword.cpp">
+      <Filter>ソース ファイル\オブジェクト\プレイヤー</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

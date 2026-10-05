@@ -14,8 +14,8 @@ public:
 	//描画元画像
 	int img{ -1 };
 	//画像サイズ
-	int width{ 0 };
-	int height{ 0 };
+	int width{ 32 };//元は0・・今回は32pxの物が多いのでそのまま設定
+	int height{ 32 };
 	//切り取り開始位置
 	int cutX{ 0 };
 	int cutY{ 0 };
@@ -26,7 +26,7 @@ public:
 	double scaleX{ 1.0 };
 	double scaleY{ 1.0 };
 	//角度
-	double angle{ 0.0 };//ラジアン角
+	double angle{ 0.0 };
 	float angleOffset{ 0.0f };//画像が上向きの場合"DX_PI_F/2"を設定
 	//反転フラグ
 	bool LR_reverse_flag{ false };
@@ -84,9 +84,6 @@ public:
 	bool draw_flag{ true };//オブジェクトの描画フラグ
 	Sprite sprite;//簡易描画クラス
 
-	//マップクラス
-	CMap* map{ nullptr };
-
 	//処理用のタイマー
 	int timer{ 0 };
 
@@ -124,6 +121,44 @@ public:
 	int PAD2() { return GetJoypadInputState(DX_INPUT_PAD2); }
 	int PAD3() { return GetJoypadInputState(DX_INPUT_PAD3); }
 	int PAD4() { return GetJoypadInputState(DX_INPUT_PAD4); }
+};
+
+//キャラクターオブジェクトクラス
+class CCharaOBJ : public BaseVector {
+protected:
+	//マップ情報
+	CMap* map = nullptr;
+
+	//基本情報
+	int hp{ 0 };
+	int maxHp{ 0 };
+	int ItemID{ -1 };//アイテムのID・・・ObjIDとは別
+	
+	//無敵時間
+	int damageCoolTime{ 0 };
+
+	//タイマー
+	int moveTimer{ 0 };
+
+	//ノックバック処理
+	Vector knockVec{ 0,0 };	//ノックバック距離
+	int knockFrame{ 0 };//ノックバックするフレーム
+
+	//ノックバック初期化
+	void KnockBack(Vector v,int f) {
+		knockVec = v;
+		knockFrame = f;
+	}
+
+	//仮でpublicに設定
+public:
+	//ダメージ処理(ダメージ量,ノックバック距離,無敵時間）
+	void Damage(int dm, Vector v, int invisible=20) {
+		if (damageCoolTime > 0) return;
+		hp -= dm;
+		KnockBack(v,10);
+		damageCoolTime = invisible;
+	}
 };
 
 //オブジェクトのソートクラス

@@ -24,9 +24,12 @@ using namespace std;
 constexpr auto WINDOW_WIDTH = 896;	//ウィンドウ横幅
 constexpr auto WINDOW_HEIGHT = 768;	//ウィンドウ縦幅
 
-//ベースチップサイズ
+//基本チップサイズ
 constexpr auto CHIP_SIZE_X = 64;
 constexpr auto CHIP_SIZE_Y = 64;
+
+//グローバルスコア
+extern int G_SCORE;//全プレイヤー共通のスコア
 
 //2D用
  struct Point {
@@ -43,8 +46,7 @@ struct Point3 {
 struct Vector3 {
 	float x, y, z;
 };
-//高さ,横幅,奥行
-struct ObjSize {
+ struct ObjSize {
 	float h, w, d;
 };
 

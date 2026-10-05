@@ -6,7 +6,7 @@ using namespace std;
 //キャラクターベースクラス
 class Character {
 public:
-	int img{ -1 };//画像
+	//int img{ -1 };//画像
 
 	Point pos{ 0,0 };//位置
 	Vector vec{ 0,0 };//移動ベクトル

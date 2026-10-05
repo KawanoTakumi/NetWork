@@ -2,14 +2,57 @@
 #include "game.h"
 #include "CollisionUpdate.h"
 #include "function.h"
+#include "Resource.h"
+
+#include "player.h"
+#include "TreasureBaseItem.h"
+#include "WeaponBaseItem.h"
+
+int G_SCORE = 0;
 
 //コンストラクタ
 CGame::CGame(CManager* p) :CScene(p){
-	//リソースの読み込み
+	//画像読み込み
 	Resource::Load();
 
-	//マップオブジェクト
 	map = make_unique<CMap>();
+	map->Map_Create(base);//特殊マップオブジェクト（リスポーン位置）
+
+	//プレイヤー
+	base.push_back(make_unique<CPlayer>(map.get()));
+
+	//マップ内に宝物を設置
+	Point _p{0,0};
+	for (int i = 0; i < MAX_TREASURE_COUNT; i++)
+	{
+		_p.x = Range_Random_Number(0, map->MAP_SIZE_X);
+		_p.y = Range_Random_Number(0, map->MAP_SIZE_Y);
+
+		//移動不可の場所には置かない
+		if (!map->CanMove(_p, 32, 32))
+		{
+			i--;
+			continue;
+		}
+		//宝物生成
+		base.push_back(make_unique<TreasureBaseItem>(Range_Random_Number(0, 23), _p, map.get()));
+	}
+
+	//マップ内に武器を設置
+	for (int i = 0; i < 60; i++)
+	{
+		_p.x = Range_Random_Number(0, map->MAP_SIZE_X);
+		_p.y = Range_Random_Number(0, map->MAP_SIZE_Y);
+		//移動不可の場所には置かない
+		if (!map->CanMove(_p, 32, 32))
+		{
+			i--;
+			continue;
+		}
+		//武器を生成
+		base.push_back(make_unique<WeaponBaseItem>(Range_Random_Number(0,2), Range_Random_Number(0, 2), _p, map.get()));
+	}
+
 }
 
 //更新処理
@@ -42,16 +85,21 @@ int CGame::UpDate(){
 //描画処理
 void CGame::Draw()
 {
+	DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 0x6b8d1c, true);
+
+	//マップの描画
 	map->Draw();
 
-	for (auto& obj : base)obj->Draw();
-
+	for (auto& obj : base) obj->Draw();
 
 	SetFontSize(16);
 	//オブジェクト個数
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "Object_Count = %d", base.size());
-	
-
+	DrawFormatString(0, 32, GetColor(255, 255, 0), "SCORE = %d", G_SCORE);
+	//3D軸の描画
+	DrawLine3D(VGet(0, 0, 0),VGet(0, 0, 100),0x0000ff);
+	DrawLine3D(VGet(0, 0, 0),VGet(100, 0, 0),0xff0000);
+	DrawLine3D(VGet(0, 0, 0),VGet(0, 100, 0),0x00ff00);
 }
 
 CGame::~CGame()

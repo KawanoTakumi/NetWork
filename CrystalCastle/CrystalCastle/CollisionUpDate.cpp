@@ -1,11 +1,9 @@
 //当たり判定関数
 #include "CollisionUpdate.h"
+#include "function.h"
 
 //当たり判定関数
-//この関数を使用する場合、baseに登録しているオブジェクトの順番についてソートが必要
-// 使用する場合の注意
-//　①priの値を設定して、オブジェクトは、必ずソートしていること
-//　②判定の条件を描く場合、aオブジェクトのpriが必ずbオブジェクトより小さくなるように指定すること
+//この関数を使用する場合、objIDについて取り扱いに注意すること
 void CollisionUpDate(ObjList& base) {
 	for (int i = 0; i < base.size(); i++) {
 		BaseVector* a = base[i].get();
@@ -14,6 +12,25 @@ void CollisionUpDate(ObjList& base) {
 			BaseVector* b = base[j].get();
 			//ID順を統一
 			//if(a==b)とif(b==a)は同じオブジェクトの判定になるので、ID順を統一する
+			if (a->ID > b->ID) swap(a, b);
+			/*
+			例）
+			IDがPLAYERとENEMYの場合
+			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ENEMY) {
+				//判定処理
+			}
+			*/
+
+			//仮作成の武器と敵の当たり判定
+			//if (a->ID == (int)ObjID::WEAPON && b->ID == (int)ObjID::ENEMY)
+			//{
+			//	if (HitCheck_Box(a, b))
+			//	{
+			//		CCharaOBJ* obj = dynamic_cast<CCharaOBJ*>(b);
+
+			//		obj->Damage(10, obj->vec);
+			//	}
+			//}
 		}
 	}
 }
