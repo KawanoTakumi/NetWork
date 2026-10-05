@@ -1,6 +1,7 @@
 //当たり判定関数
 #include "CollisionUpdate.h"
 #include "function.h"
+#include "sword.h"
 
 //当たり判定関数
 //この関数を使用する場合、objIDについて取り扱いに注意すること
@@ -13,6 +14,14 @@ void CollisionUpDate(ObjList& base) {
 			//ID順を統一
 			//if(a==b)とif(b==a)は同じオブジェクトの判定になるので、ID順を統一する
 			if (a->ID > b->ID) swap(a, b);
+
+			//プレイヤーと敵の当たり判定
+			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ENEMY){
+				Player_Enemy_Collision(a, b);
+			}
+
+
+
 			/*
 			例）
 			IDがPLAYERとENEMYの場合
@@ -33,4 +42,40 @@ void CollisionUpDate(ObjList& base) {
 			//}
 		}
 	}
+}
+
+
+void Player_Enemy_Collison(BaseVector* a, BaseVector* b)
+{
+	//判定処理
+	if (HitCheck_Box2(a, b))
+	{
+		//当たった場合
+
+		CCharaOBJ* player = dynamic_cast<CCharaOBJ*>(a);
+		
+		Vector v{
+			a->pos.x - b->pos.x,
+			a->pos.y - b->pos.y
+		};
+
+		v = Vector_SetLength(v, 15);
+
+	}
+}
+
+//敵と武器のあたり判定
+void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
+{
+	float enemyRad = 16;
+
+	CSword* s = dynamic_cast<CSword*>(b);
+
+	Point swordStart{ s->pos.x,s->pos.y };
+
+	Point swordEnd
+	{
+		s->pos.x + cos(s->sprite.angle) * s->SWORD_LENGTH,
+		s->pos.y + sin(s->sprite.angle) * s->SWORD_LENGTH
+	};
 }

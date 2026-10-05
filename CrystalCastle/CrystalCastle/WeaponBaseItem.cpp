@@ -32,14 +32,21 @@ int WeaponBaseItem::Action(const ObjList& base, ObjList& add_list)
 				isHit = true;
 				if (CheckHitKey(KEY_INPUT_E))
 				{
+					isGet = true;//取得フラグ有効化
+				}
+				if (isGet && !CheckHitKey(KEY_INPUT_E))
+				{
 					FLAG = false;//このアイテムを削除
 					CPlayer* player = dynamic_cast<CPlayer*>(i.get());//プレイヤー取得
 					player->GetNewWeapon(weapon_id, weapon_no, add_list);//プレイヤーの武器をWeaponID毎に変化させる
+					isGet = false;
 				}
 			}
 			else
 			{
+				//初期化
 				isHit = false;
+				isGet = false;
 			}
 		}
 	}

@@ -15,6 +15,8 @@ public:
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 
+	CMap* map = nullptr;
+
 	//ƒL[‚Ìó‘Ô•Û‘¶
 	char key[256]{ 0 };
 

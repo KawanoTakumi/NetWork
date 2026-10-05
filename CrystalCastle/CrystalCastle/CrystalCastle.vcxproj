@@ -158,7 +158,9 @@
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="2D_function.h" />
     <ClInclude Include="CollisionUpdate.h" />
+    <ClInclude Include="DamageObj.h" />
     <ClInclude Include="Effect.h" />
+    <ClInclude Include="EnemyBase.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="libID.h" />
@@ -183,6 +185,8 @@
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="2D_function.cpp" />
     <ClCompile Include="CollisionUpDate.cpp" />
+    <ClCompile Include="DamageObj.cpp" />
+    <ClCompile Include="EnemyBase.cpp" />
     <ClCompile Include="function.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="library_function.cpp" />
