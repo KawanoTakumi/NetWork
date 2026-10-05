@@ -6,6 +6,8 @@
 #include "map.h"
 #include "function.h"
 
+#include "EnemyBase.h"
+
 //文字分割関数
 vector<string> split(string& input, char delimiter)
 {
@@ -65,6 +67,13 @@ CMap::CMap() {
 void CMap::Map_Create(ObjList& base) {
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
 		for (int x = 0; x < MAP_CHIP_X; x++) {
+
+			if (map[y][x] == 30)
+			{
+				//イメージ,　位置, No, マップ
+				Point p{ x * CHIP_SIZE_X,y * CHIP_SIZE_Y };
+				base.push_back(make_unique<EnemyBase>(p,this));
+			}
 		}
 	}
 }

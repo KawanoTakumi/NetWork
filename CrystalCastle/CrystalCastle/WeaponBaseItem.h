@@ -14,4 +14,5 @@ private:
 	int weapon_id = { -1 };//•Ší‚Ìí—ŞID
 	int weapon_no = { -1 };//•Ší‚Ì”Ô†ID(Œ•‚Ì0”ÔA1”Ô‚È‚Ç)
 	bool isHit = false;
+	bool isGet = false;
 };

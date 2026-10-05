@@ -65,7 +65,8 @@ int CPlayer::Action(const ObjList& base, ObjList& add_base)
 	if (damageCoolTime == 20) PlaySoundMem(player_damage_SE, DX_PLAYTYPE_BACK);
 	//ダメージクールタイムチェック
 	if (damageCoolTime > 0)damageCoolTime--;
-	if (knockFrame > 0) {
+	if (knockFrame > 0)
+	{
 		knockFrame--;
 		//サブステップ判定
 		//処理回数を計算
@@ -89,6 +90,8 @@ int CPlayer::Action(const ObjList& base, ObjList& add_base)
 
 		return 0;
 	}
+
+
 
 	if (!isAttack) {
 		//キー入力
