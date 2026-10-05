@@ -3,7 +3,7 @@
 #include "objBase.h"
 #include "map.h"
 
-class CBow :public CCharaOBJ
+class CBow :public BaseVector
 {
 public:
 	//位置,移動ベクトル

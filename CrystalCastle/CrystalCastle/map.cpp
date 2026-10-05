@@ -128,6 +128,7 @@ bool CMap::CanMove(Point p, int width, int height) {
 			y < 0 || y >= MAP_CHIP_Y)
 			return false;
 
+		if(map != nullptr)
 		if (IsWall(map[y][x])) return false;
 	}
 

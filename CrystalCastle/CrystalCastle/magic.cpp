@@ -1,4 +1,5 @@
 #include "magic.h"
+#include "damageObj.h"
 #include "function.h"
 
 CMagic::CMagic(Point p, Vector v,int _No, int base_damage, CMap* _map)
@@ -30,8 +31,8 @@ int CMagic::Action(const ObjList& base, ObjList& add_base)
 		{
 			if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
 			{
-				CCharaOBJ* obj = dynamic_cast<CCharaOBJ*>(i.get());
-				obj->Damage(calc_damage, { 0,0 });
+				CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
+				obj->Damage(calc_damage, { 0,0 },10);
 			}
 		}
 	}

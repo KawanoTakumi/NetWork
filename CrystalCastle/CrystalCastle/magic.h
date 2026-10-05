@@ -2,7 +2,7 @@
 #include "objBase.h"
 #include "map.h"
 
-class CMagic : public CCharaOBJ
+class CMagic : public BaseVector
 {
 public:
 	CMagic(Point, Vector,int _No, int base_damage,CMap*);

@@ -3,7 +3,7 @@
 #include "map.h"
 //宝物のベースクラス
 
-class TreasureBaseItem : public CCharaOBJ
+class TreasureBaseItem : public BaseVector
 {
 public:
 	TreasureBaseItem(int ID,Point p,CMap* m);

@@ -2,7 +2,7 @@
 #include "objBase.h"
 #include "map.h"
 
-class CSword :public CCharaOBJ
+class CSword :public BaseVector
 {
 public:
 	//位置,向き,武器No、マップ,オーナーオブジェクト

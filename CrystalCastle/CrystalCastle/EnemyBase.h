@@ -11,6 +11,6 @@ public:
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 
-	CMap* map = nullptr;
+	//CMap* map = nullptr;
 
 };

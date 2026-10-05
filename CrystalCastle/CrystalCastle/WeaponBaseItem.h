@@ -3,7 +3,7 @@
 #include "map.h"
 //武器のベースクラス
 
-class WeaponBaseItem : public CCharaOBJ
+class WeaponBaseItem : public BaseVector
 {
 public:
 	WeaponBaseItem(int WeaponID,int WeaponNo,Point p,CMap* m);

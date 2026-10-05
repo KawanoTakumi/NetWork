@@ -1,6 +1,7 @@
 //“–‚½‚è”»’èŠÖ”
 #include "CollisionUpdate.h"
 #include "function.h"
+#include "player.h"
 #include "sword.h"
 
 //“–‚½‚è”»’èŠÖ”
@@ -44,15 +45,14 @@ void CollisionUpDate(ObjList& base) {
 	}
 }
 
-
-void Player_Enemy_Collison(BaseVector* a, BaseVector* b)
+void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 {
 	//”»’èˆ—
 	if (HitCheck_Box2(a, b))
 	{
 		//“–‚½‚Á‚½ê‡
 
-		CCharaOBJ* player = dynamic_cast<CCharaOBJ*>(a);
+		CDamageObj* player = dynamic_cast<CDamageObj*>(a);
 		
 		Vector v{
 			a->pos.x - b->pos.x,
@@ -60,7 +60,7 @@ void Player_Enemy_Collison(BaseVector* a, BaseVector* b)
 		};
 
 		v = Vector_SetLength(v, 15);
-
+		player->KnockBack(v);
 	}
 }
 

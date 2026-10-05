@@ -2,7 +2,7 @@
 #include "objBase.h"
 #include "map.h"
 
-class CEffect :public CCharaOBJ
+class CEffect :public BaseVector
 {
 public:
 	//位置,エフェクトNo,サイズ,スピード,マップ

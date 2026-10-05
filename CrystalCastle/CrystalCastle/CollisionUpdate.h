@@ -6,7 +6,7 @@
 void CollisionUpDate(ObjList&);
 
 //ƒvƒŒƒCƒ„[‚Æ“G
-void Player_Enemy_Collision(BaseVector*, BaseVector*);
+void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
 
 //“G‚Æ•Ší
-void Enemy_Weapon_Collison(BaseVector*, BaseVector*);
+void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b);

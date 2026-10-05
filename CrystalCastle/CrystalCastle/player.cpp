@@ -57,9 +57,13 @@ int CPlayer::Action(const ObjList& base, ObjList& add_base)
 	}
 
 	vec.x = vec.y = 0;
+
+	if (UpdateKnockBack(map))return 0;
 	if (att_frame > 0) att_frame--;
 	//攻撃中判定フラグ
 	bool isAttack = (att_frame > 0);
+
+
 	//ノックバック処理
 	//SE
 	if (damageCoolTime == 20) PlaySoundMem(player_damage_SE, DX_PLAYTYPE_BACK);

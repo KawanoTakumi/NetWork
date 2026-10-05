@@ -1,10 +1,11 @@
 #pragma once
 #include "objBase.h"
+#include "damageObj.h"
 #include "map.h"
 
 
 
-class CPlayer :public CCharaOBJ
+class CPlayer :public CDamageObj
 {
 private:
 	Point startPos{ 7660,5370 };
@@ -15,7 +16,7 @@ public:
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 
-	CMap* map = nullptr;
+	CMap* map;
 
 	//ÉLÅ[ÇÃèÛë‘ï€ë∂
 	char key[256]{ 0 };
