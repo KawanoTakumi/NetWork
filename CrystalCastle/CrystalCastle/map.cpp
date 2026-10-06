@@ -74,6 +74,7 @@ void CMap::Map_Create(ObjList& base) {
 				//イメージ,　位置, No, マップ
 				Point p{ x * CHIP_SIZE_X,y * CHIP_SIZE_Y };
 				base.push_back(make_unique<CSpawnPoint>(p,0,this));
+				//base.push_back(make_unique<EnemyBase>(p,this));
 			}
 		}
 	}

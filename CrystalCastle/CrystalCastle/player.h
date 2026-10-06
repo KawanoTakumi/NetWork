@@ -16,7 +16,7 @@ public:
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 
-	CMap* map;
+	//CMap* map;
 
 	//ƒL[‚Ìó‘Ô•Û‘¶
 	char key[256]{ 0 };

@@ -22,7 +22,7 @@ CPlayer::CPlayer(CMap* _map)
 
 	map = _map;
 
-	pri = 2;
+	pri = 1;
 
 	ID = (int)ObjID::PLAYER;
 

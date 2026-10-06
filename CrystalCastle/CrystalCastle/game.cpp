@@ -16,8 +16,6 @@ CGame::CGame(CManager* p) :CScene(p){
 	Resource::Load();
 
 	map = make_unique<CMap>();
-	//特殊ブロック生成
-	map->Map_Create(base);//特殊マップオブジェクト（リスポーン位置）
 
 	//プレイヤー
 	base.push_back(make_unique<CPlayer>(map.get()));
@@ -54,6 +52,9 @@ CGame::CGame(CManager* p) :CScene(p){
 		//武器を生成
 		base.push_back(make_unique<WeaponBaseItem>(Range_Random_Number(0,2), Range_Random_Number(0, 2), _p, map.get()));
 	}
+	
+	//特殊ブロック生成
+	map->Map_Create(base);//特殊マップオブジェクト（リスポーン位置）
 
 }
 

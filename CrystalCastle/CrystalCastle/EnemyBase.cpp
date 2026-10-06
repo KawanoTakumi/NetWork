@@ -2,6 +2,7 @@
 #include "function.h"
 #include "spawnPoint.h"
 
+//スポーンポイント設定用
 EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 {
 	sprite.img = Resource::enemy5Img;
@@ -21,7 +22,9 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 	pos = p;
 
 	ID = (int)ObjID::ENEMY;
+	pri = 2;
 }
+//デバッグ用
 EnemyBase::EnemyBase(Point p, CMap* _map)
 {
 	sprite.img = Resource::enemy5Img;
@@ -49,6 +52,8 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	//HPがなくなった場合、オブジェクト解除
 	if (hp <= 0) {
 		FLAG = false;
+
+		if(spawn != nullptr)
 		spawn->enemyAlive = false;
 	}
 	return 0;
