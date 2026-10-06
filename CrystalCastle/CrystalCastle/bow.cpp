@@ -16,8 +16,9 @@ CBow::CBow(Point p, Vector v,int _No, int base_damage, CMap* _m) {
 	sprite.angle = atan2(vec.y, vec.x);
 	calc_damage = base_damage + (_No * 2);//仮のダメージ
 	map = _m;
-	
 	ID = (int)ObjID::WEAPON;
+	pri = 1;
+	WeaponID = 1;
 }
 
 int CBow::Action(const ObjList& base, ObjList& add_base) 
@@ -27,18 +28,7 @@ int CBow::Action(const ObjList& base, ObjList& add_base)
 	//弓矢の場合、壁を貫通しない
 	if (!map->CanMove(pos, 32, 32))
 		FLAG = false;
-	for (auto& i : base)
-	{
-		if (i->ID == (int)ObjID::ENEMY)
-		{
-			if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
-			{
-				CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
-				obj->Damage(calc_damage, { 0,0 });
-				FLAG = false;
-			}
-		}
-	}
+
 	life--;
 	if (life == 0)FLAG = false;
 

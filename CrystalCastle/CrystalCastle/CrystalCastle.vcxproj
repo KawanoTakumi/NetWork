@@ -180,6 +180,7 @@
     <ClInclude Include="spawnPoint.h" />
     <ClInclude Include="sword.h" />
     <ClInclude Include="TreasureBaseItem.h" />
+    <ClInclude Include="weapon.h" />
     <ClInclude Include="WeaponBaseItem.h" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +204,7 @@
     <ClCompile Include="spawnPoint.cpp" />
     <ClCompile Include="sword.cpp" />
     <ClCompile Include="TreasureBaseItem.cpp" />
+    <ClCompile Include="weapon.cpp" />
     <ClCompile Include="WeaponBaseItem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

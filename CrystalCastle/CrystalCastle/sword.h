@@ -1,8 +1,8 @@
 #pragma once
-#include "objBase.h"
+#include "weapon.h"
 #include "map.h"
 
-class CSword :public BaseVector
+class CSword :public CWeaponBase
 {
 public:
 	//位置,向き,武器No、マップ,オーナーオブジェクト
@@ -12,10 +12,7 @@ public:
 	void Draw();
 
 	//角度
-	float angle{ 0 };
 	float start_angle{ 0 };
-
 	//剣の長さ
 	const float SWORD_LENGTH = 48;
-	int calc_damage = 0;//最終ダメージ;
 };

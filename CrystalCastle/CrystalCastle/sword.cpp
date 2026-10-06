@@ -41,6 +41,7 @@ CSword::CSword(Point p, int _dir,int _No,int base_damage,CMap* _map)
 	sprite.angle = RADIAN(angle);
 
 	ID = (int)ObjID::WEAPON;
+	WeaponID = 0;
 }
 
 int CSword::Action(const ObjList& base, ObjList& add_base)

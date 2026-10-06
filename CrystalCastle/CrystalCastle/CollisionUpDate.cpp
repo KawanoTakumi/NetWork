@@ -4,6 +4,8 @@
 #include "player.h"
 #include "item.h"
 #include "sword.h"
+#include "bow.h"
+#include "magic.h"
 
 //“–‚½‚è”»’èŠÖ”
 //‚±‚ÌŠÖ”‚ğg—p‚·‚éê‡AobjID‚É‚Â‚¢‚Äæ‚èˆµ‚¢‚É’ˆÓ‚·‚é‚±‚Æ
@@ -77,36 +79,96 @@ void Player_Item_Collision(BaseVector* a, BaseVector* b)
 //“G‚Æ•Ší‚Ì‚ ‚½‚è”»’è
 void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 {
-	//Œ»óŒ•‚Ì‚İ‘Î‰
-
+	//“G‚Ì‚ ‚½‚è”»’è‚Ì”ÍˆÍ
 	float enemyRad = 32;
-	CSword* s = dynamic_cast<CSword*>(a);
 
-	Point swordStart{ s->pos.x,s->pos.y };
+	//•Ší‚©‚Ç‚¤‚©‚ğ’²‚×‚é
+	CWeaponBase* w = dynamic_cast<CWeaponBase*>(a);
+	//•Ší‚¾‚Á‚½ê‡•Ší‚ÌID‚ğæ“¾
+	int WeaponID = w->GetWeaponID();
 
-	Point swordEnd
+	//ID–ˆ‚É•Ší‚Ì‹““®‚ğİ’è
+	switch (WeaponID)
 	{
-		s->pos.x + cos(s->sprite.angle) * s->SWORD_LENGTH,
-		s->pos.y + sin(s->sprite.angle) * s->SWORD_LENGTH
-	};
-
-	Point lp = Position_Closest_Line(b->pos, swordStart, swordEnd);
-
-	float dx = b->pos.x - lp.x;
-	float dy = b->pos.y - lp.y;
-	float dist = sqrt(dx * dx + dy * dy);
-
-	if (dist <= enemyRad)
+	case 0://Œ•
 	{
-		CDamageObj* enemy = dynamic_cast<CDamageObj*>(b);
+		CSword* s = dynamic_cast<CSword*>(a);
+		Point swordStart{ s->pos.x,s->pos.y };
 
-		Vector v
+		Point swordEnd
 		{
-			enemy->pos.x - s->pos.x,
-			enemy->pos.y - s->pos.y
+			s->pos.x + cos(s->sprite.angle) * s->SWORD_LENGTH,
+			s->pos.y + sin(s->sprite.angle) * s->SWORD_LENGTH
 		};
-		v = Vector_SetLength(v, 15);
-		enemy->Damage(s->calc_damage, v);
-;
+
+		Point lp = Position_Closest_Line(b->pos, swordStart, swordEnd);
+
+		float dx = b->pos.x - lp.x;
+		float dy = b->pos.y - lp.y;
+		float dist = sqrt(dx * dx + dy * dy);
+
+		if (dist <= enemyRad)
+		{
+			CDamageObj* enemy = dynamic_cast<CDamageObj*>(b);
+
+			Vector v
+			{
+				enemy->pos.x - s->pos.x,
+				enemy->pos.y - s->pos.y
+			};
+			v = Vector_SetLength(v, 15);
+			enemy->Damage(s->calc_damage, v);
+			;
+		}
+	}break;
+	case 1://‹|
+	{
+		CBow* bow = dynamic_cast<CBow*>(a);
+
+		//‹|‚Æ“G‚Ì‚ ‚½‚è”»’è
+		if (HitCheck_Box2(bow,b))
+		{
+			//“G‚ğæ“¾
+			CDamageObj* enemy = dynamic_cast<CDamageObj*>(b);
+
+			//ƒmƒbƒNƒoƒbƒN‚Ì•ûŒü‚ğŒvZ
+			Vector v
+			{
+				enemy->pos.x - bow->pos.x,
+				enemy->pos.y - bow->pos.y
+			};
+			v = Vector_SetLength(v, 15);
+			enemy->Damage(bow->calc_damage,v);
+			bow->FLAG = false;
+		}
+	}break;
+	case 2://ñ
+	{
+		CMagic* magic = dynamic_cast<CMagic*>(a);
+		//‹|‚Æ“G‚Ì‚ ‚½‚è”»’è
+		if (HitCheck_Box2(magic,b))
+		{
+			//“G‚ğæ“¾
+			CDamageObj* enemy = dynamic_cast<CDamageObj*>(b);
+
+			//ƒmƒbƒNƒoƒbƒN‚Ì•ûŒü‚ğŒvZ
+			Vector v
+			{
+				enemy->pos.x - magic->pos.x,
+				enemy->pos.y - magic->pos.y
+			};
+			v = Vector_SetLength(v, 15);
+			enemy->Damage(magic->calc_damage, v);
+			
+		}
+
+
+	}break;
+	default:
+	{
+
+	}break;
 	}
+
+
 }

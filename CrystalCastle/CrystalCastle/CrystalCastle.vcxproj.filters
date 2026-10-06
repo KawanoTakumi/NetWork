@@ -131,6 +131,9 @@
     <ClInclude Include="expItem.h">
       <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
     </ClInclude>
+    <ClInclude Include="weapon.h">
+      <Filter>ヘッダー ファイル\オブジェクト\プレイヤー</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -195,6 +198,9 @@
     </ClCompile>
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon.cpp">
+      <Filter>ソース ファイル\オブジェクト\プレイヤー</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

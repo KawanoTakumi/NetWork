@@ -3,7 +3,6 @@
 
 void CDamageObj::KnockBack(Vector v)
 {
-
 	knockVec = v;
 	knockFrame = 10;
 }

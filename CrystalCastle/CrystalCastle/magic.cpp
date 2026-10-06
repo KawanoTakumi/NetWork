@@ -16,29 +16,17 @@ CMagic::CMagic(Point p, Vector v,int _No, int base_damage, CMap* _map)
 	calc_damage = base_damage + (_No * 1);//‰¼‚Ìƒ_ƒ[ƒW
 
 	map = _map;
-	
+	pri = 1;
 	ID = (int)ObjID::WEAPON;
-
+	WeaponID = 2;
 }
 
 int CMagic::Action(const ObjList& base, ObjList& add_base)
 {
 	pos = Add_Point_Vector(pos, vec);
 
-	for (auto& i : base)
-	{
-		if (i->ID == (int)ObjID::ENEMY)
-		{
-			if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
-			{
-				CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
-				obj->Damage(calc_damage, { 0,0 });
-			}
-		}
-	}
 	life--;
 	if (life == 0)FLAG = false;
-
 
 	return 0;
 }
