@@ -10,7 +10,7 @@ public:
 	static int enemy6Img;
 	static int bowImg;
 	static int mapImg;
-
+	static int itemImg;
 	//ƒ}ƒbƒv‰æ‘œ
 	static int map_cave_Img;
 

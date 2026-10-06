@@ -157,6 +157,8 @@
     <ClInclude Include="bow.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="2D_function.h" />
+    <ClInclude Include="expItem.h" />
+    <ClInclude Include="item.h" />
     <ClInclude Include="CollisionUpdate.h" />
     <ClInclude Include="damageObj.h" />
     <ClInclude Include="Effect.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene_Base.h" />
     <ClInclude Include="Scene_Manager.h" />
+    <ClInclude Include="spawnPoint.h" />
     <ClInclude Include="sword.h" />
     <ClInclude Include="TreasureBaseItem.h" />
     <ClInclude Include="WeaponBaseItem.h" />
@@ -184,17 +187,20 @@
     <ClCompile Include="bow.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="2D_function.cpp" />
+    <ClCompile Include="expItem.cpp" />
     <ClCompile Include="CollisionUpDate.cpp" />
     <ClCompile Include="damageObj.cpp" />
     <ClCompile Include="EnemyBase.cpp" />
     <ClCompile Include="function.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="library_function.cpp" />
     <ClCompile Include="magic.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="Resoure.cpp" />
+    <ClCompile Include="spawnPoint.cpp" />
     <ClCompile Include="sword.cpp" />
     <ClCompile Include="TreasureBaseItem.cpp" />
     <ClCompile Include="WeaponBaseItem.cpp" />

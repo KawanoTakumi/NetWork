@@ -122,6 +122,15 @@
     <ClInclude Include="EnemyBase.h">
       <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
     </ClInclude>
+    <ClInclude Include="spawnPoint.h">
+      <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="expItem.h">
+      <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -177,6 +186,15 @@
     </ClCompile>
     <ClCompile Include="damageObj.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="spawnPoint.cpp">
+      <Filter>ソース ファイル\オブジェクト\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="expItem.cpp">
+      <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

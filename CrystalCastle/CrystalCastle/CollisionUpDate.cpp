@@ -2,6 +2,7 @@
 #include "CollisionUpdate.h"
 #include "function.h"
 #include "player.h"
+#include "item.h"
 #include "sword.h"
 
 //当たり判定関数
@@ -21,6 +22,11 @@ void CollisionUpDate(ObjList& base) {
 				Player_Enemy_Collision(a, b);
 			}
 
+			//プレイヤーとアイテム
+			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ITEM) {
+				Player_Item_Collision(a, b);
+			}
+
 			if (a->ID == (int)ObjID::WEAPON && b->ID == (int)ObjID::ENEMY) {
 				Enemy_Weapon_Collison(a, b);
 			}
@@ -33,17 +39,6 @@ void CollisionUpDate(ObjList& base) {
 				//判定処理
 			}
 			*/
-
-			//仮作成の武器と敵の当たり判定
-			//if (a->ID == (int)ObjID::WEAPON && b->ID == (int)ObjID::ENEMY)
-			//{
-			//	if (HitCheck_Box(a, b))
-			//	{
-			//		CCharaOBJ* obj = dynamic_cast<CCharaOBJ*>(b);
-
-			//		obj->Damage(10, obj->vec);
-			//	}
-			//}
 		}
 	}
 }
@@ -64,6 +59,18 @@ void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 
 		v = Vector_SetLength(v, 15);
 		player->KnockBack(v);
+	}
+}
+
+//プレイヤーとアイテム
+void Player_Item_Collision(BaseVector* a, BaseVector* b)
+{
+	if (HitCheck_Box2(a, b)) 
+	{
+		//アイテムオブジェクトにキャスト
+		CItem* item = dynamic_cast<CItem*>(b);
+		//アイテムゲット処理
+		item->GetItem(a);
 	}
 }
 

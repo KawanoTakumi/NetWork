@@ -7,6 +7,7 @@ int Resource::enemy5Img;
 int Resource::enemy6Img;
 int Resource::bowImg;
 int Resource::mapImg;
+int Resource::itemImg;
 
 int Resource::enemy_boss_01Img;
 int Resource::enemy_boss_02Img;
@@ -27,7 +28,7 @@ void Resource::Load()
 	enemy6Img = LoadGraph("image\\enemy6.png");
 	bowImg = LoadGraph("image\\bow.png");
 	mapImg = LoadGraph("image\\map.png");
-
+	itemImg = LoadGraph("image\\item.png");
 
 	enemy_boss_01Img = LoadGraph("");
 	enemy_boss_02Img = LoadGraph("");
@@ -46,6 +47,7 @@ void Resource::Release() {
 	DeleteGraph(enemy6Img);
 	DeleteGraph(bowImg);
 	DeleteGraph(mapImg);
+	DeleteGraph(itemImg);
 
 	DeleteGraph(enemy_boss_01Img);
 	DeleteGraph(enemy_boss_02Img);

@@ -16,10 +16,12 @@ CGame::CGame(CManager* p) :CScene(p){
 	Resource::Load();
 
 	map = make_unique<CMap>();
+	//特殊ブロック生成
 	map->Map_Create(base);//特殊マップオブジェクト（リスポーン位置）
 
 	//プレイヤー
 	base.push_back(make_unique<CPlayer>(map.get()));
+
 
 	//マップ内に宝物を設置
 	Point _p{0,0};

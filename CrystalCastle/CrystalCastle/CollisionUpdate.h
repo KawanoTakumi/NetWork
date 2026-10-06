@@ -8,5 +8,8 @@ void CollisionUpDate(ObjList&);
 //プレイヤーと敵
 void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
 
+//プレイヤーとアイテム
+void Player_Item_Collision(BaseVector* a, BaseVector* b);
+
 //敵と武器
 void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b);
