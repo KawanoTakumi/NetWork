@@ -7,16 +7,11 @@
 
 class CPlayer :public CDamageObj
 {
-private:
-	Point startPos{ 7660,5370 };
-	//Point startPos{ 6*32,7*32 };
 public:
 	CPlayer(CMap*);
 
 	int Action(const ObjList&, ObjList&);
 	void Draw();
-
-	//CMap* map;
 
 	//ÉLÅ[ÇÃèÛë‘ï€ë∂
 	char key[256]{ 0 };

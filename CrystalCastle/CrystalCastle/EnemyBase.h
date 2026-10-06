@@ -11,7 +11,6 @@ class EnemyBase : public CDamageObj
 {
 public:
 	EnemyBase(Point, CMap*, CSpawnPoint*);
-	EnemyBase(Point, CMap*);
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 

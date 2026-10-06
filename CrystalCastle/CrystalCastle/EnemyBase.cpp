@@ -1,8 +1,9 @@
 #include "EnemyBase.h"
 #include "function.h"
 #include "spawnPoint.h"
+#include "expItem.h"
 
-//スポーンポイント設定用
+
 EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 {
 	sprite.img = Resource::enemy5Img;
@@ -12,34 +13,17 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 	sprite.width = ImgWidth = 32;
 	sprite.height = ImgHeight = 32;
 
-	HP(1);//HP初期化
+	HP(3);//HP初期化
 
 	//スポーン位置保存
 	spawn = _sp;
-
+	//マップ情報
 	map = _map;
-
+	//位置情報
 	pos = p;
 
 	ID = (int)ObjID::ENEMY;
 	pri = 2;
-}
-//デバッグ用
-EnemyBase::EnemyBase(Point p, CMap* _map)
-{
-	sprite.img = Resource::enemy5Img;
-	sprite.cutX = 0;
-	sprite.cutY = 0;
-
-	sprite.width = ImgWidth = 32;
-	sprite.height = ImgHeight = 32;
-
-	HP(3);//HP初期化
-	map = _map;
-
-	pos = p;
-
-	ID = (int)ObjID::ENEMY;
 }
 
 int EnemyBase::Action(const ObjList& base, ObjList& add_base)
@@ -51,10 +35,12 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	if (UpdateKnockBack(map))return 0;
 	//HPがなくなった場合、オブジェクト解除
 	if (hp <= 0) {
-		FLAG = false;
-
+		
 		if(spawn != nullptr)
 		spawn->enemyAlive = false;
+		//EXPを生成
+		add_base.push_back(make_unique<CItemExp>(pos,map));
+		FLAG = false;
 	}
 	return 0;
 }

@@ -32,10 +32,10 @@ constexpr auto CHIP_SIZE_Y = 64;
 extern int G_SCORE;//全プレイヤー共通のスコア
 
 //2D用
- struct Point {
+struct Point {
 	float x, y;
 };
- struct Vector {
+struct Vector {
 	float x, y;
 };
 

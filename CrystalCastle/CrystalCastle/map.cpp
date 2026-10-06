@@ -34,8 +34,8 @@ CMap::CMap() {
 	}
 
 	//カメラ座標初期位置
-	camera.x = 0;
-	camera.y = 0;
+	camera.x = 7260;
+	camera.y = 5370;
 
 	//マップデータ読み込み(後でメンバー関数化）
 	int stage = 1;
