@@ -137,7 +137,7 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 				enemy->pos.x - bow->pos.x,
 				enemy->pos.y - bow->pos.y
 			};
-			v = Vector_SetLength(v, 15);
+			v = Vector_SetLength(v, 10);//剣よりノックバックしない
 			enemy->Damage(bow->calc_damage,v);
 			bow->FLAG = false;
 		}
@@ -157,7 +157,7 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 				enemy->pos.x - magic->pos.x,
 				enemy->pos.y - magic->pos.y
 			};
-			v = Vector_SetLength(v, 15);
+			v = Vector_SetLength(v, 5);//弓よりノックバックしない
 			enemy->Damage(magic->calc_damage, v);
 			
 		}
@@ -168,6 +168,7 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 	{
 
 	}break;
+
 	}
 
 

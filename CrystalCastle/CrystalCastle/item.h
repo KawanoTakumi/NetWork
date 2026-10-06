@@ -8,10 +8,8 @@ public:
 		ID = (int)ObjID::ITEM;
 	}
 
-	void GetItem(BaseVector*);
-
-	ItemNo itemNo{ -1 };
-
+	void GetItem(BaseVector*);//アイテム取得関数
+	ItemNo itemNo{ -1 };//アイテムの番号
 	int value{ -1 };//アイテム関係変数
 
 };

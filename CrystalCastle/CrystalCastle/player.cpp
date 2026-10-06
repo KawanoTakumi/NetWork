@@ -217,9 +217,8 @@ void CPlayer::Draw()
 	if (!is_view_status)
 	{
 		//現在の武器ID
-	//	DrawFormatString(0, 48, GetColor(255, 0, 0), "NowWeaponID = %d", NowUseWeaponID);
-	//	DrawFormatString(0, 64, GetColor(255, 0, 0), "NowWeaponNo = %d", NowUseWeaponNo);
-
+		DrawFormatString(300, 48, 0xffffff, "NowWeaponID = %d", NowUseWeaponID);
+		DrawFormatString(300, 64, 0xffffff, "NowWeaponNo = %d", NowUseWeaponNo);
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qでステータス表示");
 	}
 	else
@@ -228,6 +227,7 @@ void CPlayer::Draw()
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qで閉じる");
 		DrawFormatString(0, 80, GetColor(255, 255, 255), "hp/maxHp : %d/%d", hp, maxHp);
 		DrawFormatString(0, 96, GetColor(255, 255, 255), "damage   : %d", base_damage);
+		DrawFormatString(0, 112, GetColor(255, 255, 255), "exp     : %d", exp);
 	}
 	//プレイヤー
 	sprite.Draw(draw_pos.x, draw_pos.y);
@@ -257,10 +257,8 @@ void CPlayer::Attack(ObjList& add_base)
 void CPlayer::GetNewWeapon(int _NewWeaponID,int _NewWeaponNo, ObjList& add_base)
 {
 	//もともと持っていた武器を捨てる
-	//Point new_pos = CameraToScreen(pos, map->camera);
 	Point new_pos = pos;
-	//少しずらす
-
+	//もともとの武器を足元に生成
 	add_base.push_back(make_unique<WeaponBaseItem>(NowUseWeaponID,NowUseWeaponNo, new_pos,map));
 	//装備中の武器を更新する
 	NowUseWeaponID = _NewWeaponID;

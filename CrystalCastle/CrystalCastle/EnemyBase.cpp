@@ -25,6 +25,7 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 	ID = (int)ObjID::ENEMY;
 	pri = 2;
 
+	//最初の移動方向を設定
 	switch (Range_Random_Number(0, 3))
 	{
 	case 0: vec.x = 0; vec.y = -3.0f; break;//上
@@ -37,12 +38,39 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 {
 
-	//無敵時間
-	if (damageCoolTime > 0)damageCoolTime--;
-	//ノックバック処理
-	if (UpdateKnockBack(map))return 0;
-	//行動処理
+	//移動処理（ノックバックとは別）
 	{
+		//サブステップ判定処理
+		//処理回数を求める
+		int step = (int)max(abs(vec.x), abs(vec.y));
+		step = max(step, 1);
+		//1ステップの移動距離を計算
+		float moveX = vec.x / step;
+		float moveY = vec.y / step;
+		bool isHit = false;
+		//ステップ判定
+		for (int i = 0; i < step; i++)
+		{
+			//マップ判定
+			Point nextPos = pos;
+			nextPos.x += moveX;
+			nextPos.y += moveY;
+
+			if (map->CanMove(nextPos, sprite.width, sprite.height)) {
+				UpdateDir(nextPos);//移動方向を求める
+				pos = nextPos;
+			}
+			else {
+				//当たったと判定
+				isHit = true;
+			}
+			nextPos = pos;
+		}
+		//当たった場合移動方向を逆にする
+		if (isHit) {
+			vec.x = -vec.x;
+			vec.y = -vec.y;
+		}
 		//アニメーション
 		animTimer++;
 		if (animTimer >= 15)
@@ -53,11 +81,17 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 				animFrame = 0;
 		}
 		sprite.cutX = animFrame * sprite.width;
-		if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 64;
-		if (Dir == UP) sprite.cutY = 0;
-		if (Dir == DOWN) sprite.cutY = 32;
+		if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
+		if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
 
 	}
+
+
+
+	//無敵時間
+	if (damageCoolTime > 0)damageCoolTime--;
+	//ノックバック処理
+	if (UpdateKnockBack(map))return 0;
 
 	//HPがなくなった場合、オブジェクト解除
 	if (hp <= 0) {
