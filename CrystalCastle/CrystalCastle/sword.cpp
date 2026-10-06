@@ -51,17 +51,17 @@ int CSword::Action(const ObjList& base, ObjList& add_base)
 	sprite.angle = RADIAN(angle);
 	angle += 15;
 
-	for (auto& i : base)
-	{
-		if (i->ID == (int)ObjID::ENEMY)
-		{
-			if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
-			{
-				CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
-				obj->Damage(calc_damage, { 0,0 });
-			}
-		}
-	}
+	//for (auto& i : base)
+	//{
+	//	if (i->ID == (int)ObjID::ENEMY)
+	//	{
+	//		if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
+	//		{
+	//			CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
+	//			obj->Damage(calc_damage, { 0,0 });
+	//		}
+	//	}
+	//}
 
 	//”¼Žü‚µ‚½‚çÁ‚¦‚é
 	if (angle > start_angle + 195)

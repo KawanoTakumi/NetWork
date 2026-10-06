@@ -9,4 +9,4 @@ void CollisionUpDate(ObjList&);
 void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
 
 //“G‚Æ•Ší
-void Weapon_Enemy_Collison(BaseVector* a, BaseVector* b);
+void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b);
