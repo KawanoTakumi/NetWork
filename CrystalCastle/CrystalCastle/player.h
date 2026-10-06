@@ -41,6 +41,9 @@ public:
 	int NowUseWeaponID = 0;//現在装備中の武器の種類ID
 	int NowUseWeaponNo = 0;//現在装備中の武器の番号ID
 	void GetNewWeapon(int NewWeaponID, int NewWeaponNo,ObjList& add_base);//地面で当たった武器を拾う
+	//HP確認
+	int CheckHP(int);
+	int CheckHP(int, int);
 	//経験値取得
 	void GetEXP(int);
 	//レベル計算

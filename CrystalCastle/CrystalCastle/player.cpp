@@ -157,10 +157,26 @@ int CPlayer::Action(const ObjList& base, ObjList& add_base)
 	GetHitKeyStateAll(key);
 	key[(PAD_INFO & PAD_INPUT_1)] = PAD_INFO & PAD_INPUT_1;
 
+	UpdateCoolTime();
+
 	//レベルチェック
 	GetLevel(exp);
 
 	return 0;
+}
+
+//HP確認
+int CPlayer::CheckHP(int _hp)
+{
+	return CheckHP(_hp, 0);
+}
+
+int CPlayer::CheckHP(int _hp, int heal)
+{
+	int healhp = _hp + heal;
+	if (healhp > maxHp)healhp = maxHp;
+
+	return healhp;
 }
 
 //リスポーン処理

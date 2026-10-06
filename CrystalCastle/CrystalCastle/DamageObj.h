@@ -19,4 +19,6 @@ public:
 
 	//ダメージ処理(ダメージ量,ノックバック距離,無敵時間）
 	void Damage(int dm, Vector v);
+	//無敵時間の経過処理
+	void UpdateCoolTime();
 };

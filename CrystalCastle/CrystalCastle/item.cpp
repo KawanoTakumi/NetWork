@@ -7,7 +7,10 @@ void CItem::GetItem(BaseVector* b) {
 
 	switch (itemNo) {
 	case ItemNo::EXP:
-		p->exp += value;
+		p->GetEXP(value);
+		break;
+	case ItemNo::HEART:
+		p->hp = p->CheckHP(p->hp, value);
 		break;
 	}
 	FLAG = false;

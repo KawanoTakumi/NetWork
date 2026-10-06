@@ -2,7 +2,7 @@
 #include "function.h"
 #include "spawnPoint.h"
 #include "expItem.h"
-
+#include "healitem.h"
 
 EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 {
@@ -66,6 +66,7 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 		spawn->enemyAlive = false;
 		//EXP‚ğ¶¬
 		add_base.push_back(make_unique<CItemExp>(pos,map));
+		add_base.push_back(make_unique<CItemHeal>(pos, map));
 		FLAG = false;
 	}
 	return 0;

@@ -29,10 +29,10 @@ void CollisionUpDate(ObjList& base) {
 				Player_Item_Collision(a, b);
 			}
 
+			//•Ší‚Æ“G
 			if (a->ID == (int)ObjID::WEAPON && b->ID == (int)ObjID::ENEMY) {
 				Enemy_Weapon_Collison(a, b);
 			}
-
 
 			/*
 			—áj
@@ -60,7 +60,7 @@ void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 		};
 
 		v = Vector_SetLength(v, 15);
-		player->KnockBack(v);
+		player->Damage(1, v);
 	}
 }
 

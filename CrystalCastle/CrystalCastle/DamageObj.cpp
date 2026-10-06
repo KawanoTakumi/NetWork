@@ -52,3 +52,11 @@ void CDamageObj::Damage(int dm, Vector v)
 	KnockBack(v);
 	damageCoolTime = 10;// 10ƒtƒŒ[ƒ€–³“G
 }
+
+//–³“GŠÔ‚ÌŒo‰ßˆ—
+void CDamageObj::UpdateCoolTime()
+{
+	if (damageCoolTime <= 0)
+		return;
+	damageCoolTime--;
+}
