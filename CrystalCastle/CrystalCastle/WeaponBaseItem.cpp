@@ -41,6 +41,8 @@ int WeaponBaseItem::Action(const ObjList& base, ObjList& add_list)
 					FLAG = false;//このアイテムを削除
 					CPlayer* player = dynamic_cast<CPlayer*>(i.get());//プレイヤー取得
 					player->GetNewWeapon(weapon_id, weapon_no, add_list);//プレイヤーの武器をWeaponID毎に変化させる
+					player->CalcDamage(weapon_id, weapon_no);
+
 					isGet = false;
 				}
 			}

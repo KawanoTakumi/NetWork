@@ -4,16 +4,17 @@
 #include "expItem.h"
 #include "healitem.h"
 
-EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
+EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp,int _No)
 {
 	sprite.img = Resource::enemy5Img;
-	sprite.cutX = 0;
+	No = _No;
+	sprite.cutX = No * 64;
 	sprite.cutY = 0;
 
 	sprite.width = ImgWidth = 32;
 	sprite.height = ImgHeight = 32;
 
-	HP(3);//HP初期化
+	HP(No*3 + 3);//HP初期化
 
 	//スポーン位置保存
 	spawn = _sp;
@@ -28,10 +29,10 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 	//最初の移動方向を設定
 	switch (Range_Random_Number(0, 3))
 	{
-	case 0: vec.x = 0; vec.y = -3.0f; break;//上
-	case 1: vec.x = 0; vec.y = 3.0f; break;//下
-	case 2: vec.x = 3.0f; vec.y = 0; break;//右
-	case 3: vec.x = -3.0f; vec.y = 0; break;//左
+	case 0: vec.x = 0; vec.y = -move_speed; break;//上
+	case 1: vec.x = 0; vec.y = move_speed; break;//下
+	case 2: vec.x = move_speed; vec.y = 0; break;//右
+	case 3: vec.x = -move_speed; vec.y = 0; break;//左
 	}
 }
 
@@ -76,10 +77,10 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 		if (isHit) {
 			switch (Range_Random_Number(0, 3))
 			{
-			case 0: vec.x = 0; vec.y = -3.0f; break;//上
-			case 1: vec.x = 0; vec.y = 3.0f; break;//下
-			case 2: vec.x = 3.0f; vec.y = 0; break;//右
-			case 3: vec.x = -3.0f; vec.y = 0; break;//左
+			case 0: vec.x = 0; vec.y = -move_speed; break;//上
+			case 1: vec.x = 0; vec.y = move_speed; break;//下
+			case 2: vec.x = move_speed; vec.y = 0; break;//右
+			case 3: vec.x = -move_speed; vec.y = 0; break;//左
 			}
 		}
 		//アニメーション
@@ -91,12 +92,12 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 			if (animFrame > 1)
 				animFrame = 0;
 		}
-		sprite.cutX = animFrame * sprite.width;
+		sprite.cutX = animFrame * sprite.width + (No*64);
+
 		if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
 		if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
 
 	}
-
 	HomingPlayer();
 
 
@@ -110,9 +111,11 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 		
 		if(spawn != nullptr)
 		spawn->enemyAlive = false;
-		//EXPを生成
-		add_base.push_back(make_unique<CItemExp>(pos,map));
+
+		//アイテムを生成
+		add_base.push_back(make_unique<CItemExp>(pos,map,1+1*No));
 		add_base.push_back(make_unique<CItemHeal>(pos, map));
+
 		FLAG = false;
 	}
 	return 0;

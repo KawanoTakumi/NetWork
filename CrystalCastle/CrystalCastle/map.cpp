@@ -150,6 +150,8 @@ void CMap::Draw() {
 			int mx = BaseChipNoX + x;
 			int my = BaseChipNoY + y;
 
+			if (my > MAP_CHIP_Y)my = MAP_CHIP_Y;
+
 			int chip = map[my][mx];
 
 			DrawRectGraph(

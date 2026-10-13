@@ -26,8 +26,8 @@ public:
 	//経験値
 	int exp{ 0 };
 	//攻撃力
-	int base_damage{ 0 };
-
+	int base_damage{ 0 };//基礎
+	int calc_damage{ 0 };//最終
 	//リスポーン処理
 	void Respawn();
 
@@ -48,6 +48,8 @@ public:
 	void GetEXP(int);
 	//レベル計算
 	void GetLevel(int);
+	//最終攻撃力計算
+	void CalcDamage(int, int);
 
 	//SE
 	int player_att_SE{ -1 };

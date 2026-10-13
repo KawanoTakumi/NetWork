@@ -32,7 +32,7 @@ int CSpawnPoint::Action(const ObjList& base, ObjList& add_base)
 			switch (EnemyNo) 
 			{
 			case 0:
-				add_base.push_back(make_unique<EnemyBase>(pos, map,this));
+				add_base.push_back(make_unique<EnemyBase>(pos, map,this,Range_Random_Number(0,2)));
 				break;
 			}
 			enemyAlive = true;

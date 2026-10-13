@@ -10,7 +10,7 @@ public:
 	//向き
 	enum DIR { DOWN, LEFT, RIGHT, UP };
 
-	EnemyBase(Point, CMap*, CSpawnPoint*);
+	EnemyBase(Point, CMap*, CSpawnPoint*,int);
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 	void UpdateDir(Point);	//向き更新
@@ -18,5 +18,7 @@ public:
 
 	CSpawnPoint* spawn{ nullptr };
 	CDamageObj* target{ nullptr };//追尾するターゲット
-	bool create_search_obj = false;//探索用のオブジェクトを生成したか
+	bool create_search_obj{false};//探索用のオブジェクトを生成したか
+	float move_speed{ 1.3f };
+	int No{0};
 };

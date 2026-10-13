@@ -3,7 +3,7 @@
 #include "function.h"
 #include "map.h"
 
-CItemExp::CItemExp(Point p, CMap* _map)
+CItemExp::CItemExp(Point p, CMap* _map,int _value)
 {
 	sprite.img = Resource::itemImg;
 	sprite.cutX = 192;
@@ -11,14 +11,13 @@ CItemExp::CItemExp(Point p, CMap* _map)
 	sprite.width = ImgWidth = 32;
 	sprite.height = ImgHeight = 32;
 
-	pos = p;
-	map = _map;
+	pos = p;//位置
+	map = _map;//マップ
+	value = _value;//効果量
 
 	//生成時ランダムな方向にとぶように移動ベクトルを設定
 	vec.x = Range_Random_NumberF(-8, 8);
 	vec.y = Range_Random_NumberF(-8, 8);
-	//取得時の効果量
-	value = 1;
 	//アイテムの種類設定
 	itemNo = ItemNo::EXP;
 	//描画順を設定

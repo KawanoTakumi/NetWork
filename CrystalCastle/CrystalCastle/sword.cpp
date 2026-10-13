@@ -4,7 +4,7 @@
 #include "function.h"
 
 
-CSword::CSword(Point p, int _dir,int _No,int base_damage,CMap* _map)
+CSword::CSword(Point p, int _dir,int _No,int _calc_damage,CMap* _map)
 {
 	sprite.img = Resource::weaponImg;
 	sprite.cutX = _No * 32;
@@ -14,7 +14,7 @@ CSword::CSword(Point p, int _dir,int _No,int base_damage,CMap* _map)
 	pos = p;
 	Dir = _dir;
 	map = _map;
-	calc_damage = base_damage + (_No * 3);//‰¼‚Ìƒ_ƒ[ƒW
+	calc_damage = _calc_damage;
 	//‰‰ñ‚ÌŒ•‚ÌŒü‚«
 	if (Dir == (int)DIR::UP) {
 		//ã
@@ -51,18 +51,6 @@ int CSword::Action(const ObjList& base, ObjList& add_base)
 	vec.y = sin(RADIAN(angle)) * sprite.height;
 	sprite.angle = RADIAN(angle);
 	angle += 15;
-
-	//for (auto& i : base)
-	//{
-	//	if (i->ID == (int)ObjID::ENEMY)
-	//	{
-	//		if (HitCheck_Box(pos.x, pos.y, i->pos.x, i->pos.y, 32, 32))
-	//		{
-	//			CDamageObj* obj = dynamic_cast<CDamageObj*>(i.get());
-	//			obj->Damage(calc_damage, { 0,0 });
-	//		}
-	//	}
-	//}
 
 	//”¼Žü‚µ‚½‚çÁ‚¦‚é
 	if (angle > start_angle + 195)

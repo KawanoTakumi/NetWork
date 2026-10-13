@@ -2,7 +2,7 @@
 #include "damageObj.h"
 #include "function.h"
 
-CBow::CBow(Point p, Vector v,int _No, int base_damage, CMap* _m) {
+CBow::CBow(Point p, Vector v,int _No, int _calc_damage, CMap* _m) {
 
 	sprite.img = Resource::bowImg;
 	sprite.cutX = 0;
@@ -14,7 +14,7 @@ CBow::CBow(Point p, Vector v,int _No, int base_damage, CMap* _m) {
 	vec = Vector_SetLength(v, 4.0f * (_No+1));
 
 	sprite.angle = atan2(vec.y, vec.x);
-	calc_damage = base_damage + (_No * 2);//仮のダメージ
+	calc_damage = _calc_damage;//仮のダメージ
 	map = _m;
 	ID = (int)ObjID::WEAPON;
 	pri = 1;

@@ -2,7 +2,7 @@
 #include "damageObj.h"
 #include "function.h"
 
-CMagic::CMagic(Point p, Vector v,int _No, int base_damage, CMap* _map)
+CMagic::CMagic(Point p, Vector v,int _No, int _calc_damage, CMap* _map)
 {
 	sprite.img = Resource::magicImg;
 	sprite.cutX = 0;
@@ -13,7 +13,7 @@ CMagic::CMagic(Point p, Vector v,int _No, int base_damage, CMap* _map)
 	vec = Vector_SetLength(v, 8.0f);
 	sprite.cutX = _No * sprite.width;//画像の位置を武器のNo*横サイズで計算する
 	sprite.angle = atan2(vec.y, vec.x);
-	calc_damage = base_damage + (_No * 1);//仮のダメージ
+	calc_damage = _calc_damage;
 
 	map = _map;
 	pri = 1;

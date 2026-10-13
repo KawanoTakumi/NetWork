@@ -28,7 +28,7 @@ CPlayer::CPlayer(CMap* _map)
 
 	hp = maxHp = 10;
 	base_damage = 1;//基礎攻撃力を1に設定
-
+	CalcDamage(NowUseWeaponID,NowUseWeaponNo);
 }
 
 int CPlayer::Action(const ObjList& base, ObjList& add_base) 
@@ -202,9 +202,19 @@ void CPlayer::GetLevel(int exp)
 		maxHp += 5;
 		hp += 5;
 		base_damage = lv * 1.2;
+		CalcDamage(NowUseWeaponID, NowUseWeaponNo);
 	}
 }
 
+//最終攻撃力計算
+void CPlayer::CalcDamage(int _Weap_type, int _Weap_no)
+{
+	//2の部分は武器の種類数-1
+	int type_value = abs(_Weap_type - 2);
+	int no_value = _Weap_no+1;
+
+	calc_damage = type_value * no_value + base_damage;
+}
 void CPlayer::Draw()
 {
 	//描画位置を計算
@@ -212,24 +222,27 @@ void CPlayer::Draw()
 	//体力ゲージ
 	DrawHpBar(draw_pos, hp, maxHp);
 
-	DrawFormatString(0, 64, GetColor(255, 255, 255), "Lv = %d", lv);
 	if (!is_view_status)
 	{
+		//UIタイル
 		DrawBox(0, 0, 200, 80, GetColor(50, 50, 50), true);
 		//現在の武器ID
-		DrawFormatString(300, 48, 0xffffff, "NowWeaponID = %d", NowUseWeaponID);
-		DrawFormatString(300, 64, 0xffffff, "NowWeaponNo = %d", NowUseWeaponNo);
+		//DrawFormatString(300, 48, 0xffffff, "NowWeaponID = %d", NowUseWeaponID);
+		//DrawFormatString(300, 64, 0xffffff, "NowWeaponNo = %d", NowUseWeaponNo);
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qでステータス表示");
 	}
 	else
 	{
+		//UIタイル
 		DrawBox(0, 0, 200, 140, GetColor(50, 50, 50), true);
 		//ステータス
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qで閉じる");
 		DrawFormatString(0, 80, GetColor(255, 255, 255), "hp/maxHp : %d/%d", hp, maxHp);
-		DrawFormatString(0, 96, GetColor(255, 255, 255), "damage   : %d", base_damage);
+		DrawFormatString(0, 96, GetColor(255, 255, 255), "damage   : %d", calc_damage);
 		DrawFormatString(0, 112, GetColor(255, 255, 255), "exp      : %d", exp);
 	}
+	DrawFormatString(0, 64, GetColor(255, 255, 255), "Lv = %d", lv);
+
 	//プレイヤー
 	sprite.Draw(draw_pos.x, draw_pos.y);
 }
@@ -241,13 +254,13 @@ void CPlayer::Attack(ObjList& add_base)
 	switch (w_no)
 	{
 	case WeaponID::SWORD:
-		add_base.push_back(make_unique<CSword>(pos,Dir, NowUseWeaponNo,base_damage, map));
+		add_base.push_back(make_unique<CSword>(pos,Dir, NowUseWeaponNo,calc_damage, map));
 		break;
 	case WeaponID::BOW:
-		add_base.push_back(make_unique<CBow>(pos, old_vec, NowUseWeaponNo, base_damage, map));
+		add_base.push_back(make_unique<CBow>(pos, old_vec, NowUseWeaponNo, calc_damage, map));
 		break;
 	case WeaponID::MAGIC:
-		add_base.push_back(make_unique<CMagic>(pos,old_vec, NowUseWeaponNo, base_damage, map));
+		add_base.push_back(make_unique<CMagic>(pos,old_vec, NowUseWeaponNo, calc_damage, map));
 		break;
 	default:
 		break;

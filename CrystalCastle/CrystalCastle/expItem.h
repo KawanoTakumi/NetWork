@@ -6,7 +6,7 @@ class CMap;
 class CItemExp : public CItem
 {
 public:
-	CItemExp(Point, CMap*);
+	CItemExp(Point, CMap*,int);
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 };
