@@ -126,12 +126,11 @@ void EnemyBase::Draw()
 	//‘Ì—ÍƒQ[ƒW
 	DrawHpBar(draw_pos, hp, maxHp);
 
-	if (target)
-		DrawBox(draw_pos.x, draw_pos.y, draw_pos.x + 30, draw_pos.y + 30, 0xffffff, true);
-
 	//•`‰æŒü‚«	
 	sprite.LR_reverse_flag = false;
+	sprite.UD_reverse_flag = false;
 	if (Dir == LEFT)sprite.LR_reverse_flag = true;
+	if (Dir == DOWN)sprite.UD_reverse_flag = true;
 
 	sprite.Draw(draw_pos.x, draw_pos.y);
 }
