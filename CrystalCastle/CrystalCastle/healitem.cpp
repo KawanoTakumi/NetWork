@@ -38,7 +38,7 @@ int CItemHeal::Action(const ObjList&, ObjList&)
 	//ˆê’è‘¬“xˆÈ‰º‚É‚È‚Á‚½‚ç’âŽ~
 	if (abs(vec.x) < 0.1f) vec.x = 0;
 	if (abs(vec.y) < 0.1f) vec.y = 0;
-
+	if (!map->CanMove(pos, 32, 32))vec.x = vec.y = 0.0f;
 	return 0;
 
 }

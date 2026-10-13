@@ -212,10 +212,10 @@ void CPlayer::Draw()
 	//体力ゲージ
 	DrawHpBar(draw_pos, hp, maxHp);
 
-	DrawBox(0, 0, 200, 120, GetColor(50, 50, 50), true);
 	DrawFormatString(0, 64, GetColor(255, 255, 255), "Lv = %d", lv);
 	if (!is_view_status)
 	{
+		DrawBox(0, 0, 200, 80, GetColor(50, 50, 50), true);
 		//現在の武器ID
 		DrawFormatString(300, 48, 0xffffff, "NowWeaponID = %d", NowUseWeaponID);
 		DrawFormatString(300, 64, 0xffffff, "NowWeaponNo = %d", NowUseWeaponNo);
@@ -223,11 +223,12 @@ void CPlayer::Draw()
 	}
 	else
 	{
+		DrawBox(0, 0, 200, 140, GetColor(50, 50, 50), true);
 		//ステータス
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qで閉じる");
 		DrawFormatString(0, 80, GetColor(255, 255, 255), "hp/maxHp : %d/%d", hp, maxHp);
 		DrawFormatString(0, 96, GetColor(255, 255, 255), "damage   : %d", base_damage);
-		DrawFormatString(0, 112, GetColor(255, 255, 255), "exp     : %d", exp);
+		DrawFormatString(0, 112, GetColor(255, 255, 255), "exp      : %d", exp);
 	}
 	//プレイヤー
 	sprite.Draw(draw_pos.x, draw_pos.y);

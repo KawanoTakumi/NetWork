@@ -99,10 +99,6 @@ void CGame::Draw()
 	//オブジェクト個数
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "Object_Count = %d", base.size());
 	DrawFormatString(0, 32, GetColor(255, 255, 0), "SCORE = %d", G_SCORE);
-	//3D軸の描画
-	DrawLine3D(VGet(0, 0, 0),VGet(0, 0, 100),0x0000ff);
-	DrawLine3D(VGet(0, 0, 0),VGet(100, 0, 0),0xff0000);
-	DrawLine3D(VGet(0, 0, 0),VGet(0, 100, 0),0x00ff00);
 }
 
 CGame::~CGame()
