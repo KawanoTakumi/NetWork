@@ -6,6 +6,7 @@
 #include "sword.h"
 #include "bow.h"
 #include "magic.h"
+#include "SearchPlayer.h"
 
 //当たり判定関数
 //この関数を使用する場合、objIDについて取り扱いに注意すること
@@ -18,6 +19,11 @@ void CollisionUpDate(ObjList& base) {
 			//ID順を統一
 			//if(a==b)とif(b==a)は同じオブジェクトの判定になるので、ID順を統一する
 			if (a->ID > b->ID) swap(a, b);
+
+			//プレイヤーと敵の索敵範囲
+			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::SEARCH){
+				Player_Search_Collision(a,b);
+			}
 
 			//プレイヤーと敵の当たり判定
 			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ENEMY){
@@ -45,6 +51,18 @@ void CollisionUpDate(ObjList& base) {
 	}
 }
 
+void Player_Search_Collision(BaseVector* a, BaseVector* b)
+{
+	CSearchPlayer* search_p = dynamic_cast<CSearchPlayer*>(b);
+	int length = search_p->search_length;
+	if(HitCheck_Box_Circle(a,b,length))
+	{
+		CDamageObj* target = dynamic_cast<CDamageObj*>(a);
+		//当たった場合
+		search_p->target = target;
+		search_p->InPlayer();
+	}
+}
 void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 {
 	//判定処理
@@ -168,8 +186,5 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 	{
 
 	}break;
-
 	}
-
-
 }

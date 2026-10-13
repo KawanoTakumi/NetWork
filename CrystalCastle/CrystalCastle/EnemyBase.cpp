@@ -37,7 +37,13 @@ EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp)
 
 int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 {
-
+	//プレイヤー探索用のオブジェクトを生成
+	if (!create_search_obj)
+	{
+		add_base.push_back(make_unique<CSearchPlayer>(this,map));
+		create_search_obj = true;
+	}
+	
 	//移動処理（ノックバックとは別）
 	{
 		//サブステップ判定処理
@@ -66,10 +72,15 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 			}
 			nextPos = pos;
 		}
-		//当たった場合移動方向を逆にする
+		//当たった場合移動方向を再設定する
 		if (isHit) {
-			vec.x = -vec.x;
-			vec.y = -vec.y;
+			switch (Range_Random_Number(0, 3))
+			{
+			case 0: vec.x = 0; vec.y = -3.0f; break;//上
+			case 1: vec.x = 0; vec.y = 3.0f; break;//下
+			case 2: vec.x = 3.0f; vec.y = 0; break;//右
+			case 3: vec.x = -3.0f; vec.y = 0; break;//左
+			}
 		}
 		//アニメーション
 		animTimer++;
@@ -86,6 +97,7 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 
 	}
 
+	HomingPlayer();
 
 
 	//無敵時間
@@ -114,6 +126,9 @@ void EnemyBase::Draw()
 	//体力ゲージ
 	DrawHpBar(draw_pos, hp, maxHp);
 
+	if (target)
+		DrawBox(draw_pos.x, draw_pos.y, draw_pos.x + 30, draw_pos.y + 30, 0xffffff, true);
+
 	//描画向き	
 	sprite.LR_reverse_flag = false;
 	if (Dir == LEFT)sprite.LR_reverse_flag = true;
@@ -131,4 +146,18 @@ void EnemyBase::UpdateDir(Point target)
 		Dir = (dx > 0) ? RIGHT : LEFT;
 	else
 		Dir = (dy > 0) ? DOWN : UP;
+}
+
+void EnemyBase::HomingPlayer()
+{
+	//プレイヤーがいない場合は終了
+	if (target == nullptr)return;
+
+	Vector homing_vec{
+		homing_vec.x = target->pos.x - pos.x,
+		homing_vec.y = target->pos.y - pos.y
+	};
+	
+	//プレイヤーの方向に移動する
+	vec = Vector_SetLength(homing_vec, 2);
 }

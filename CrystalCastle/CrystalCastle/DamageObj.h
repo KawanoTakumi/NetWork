@@ -1,5 +1,6 @@
 #pragma once
 #include "objBase.h"
+#include "map.h"
 
 class CDamageObj : public BaseVector
 {

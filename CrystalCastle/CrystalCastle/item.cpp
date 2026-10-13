@@ -10,7 +10,6 @@ void CItem::GetItem(BaseVector* b) {
 	case ItemNo::EXP:
 	{
 		p->GetEXP(value);
-		this->FLAG = false;
 		break;
 	}
 	case ItemNo::HEART:

@@ -5,6 +5,8 @@
 //当たり判定メイン関数
 void CollisionUpDate(ObjList&);
 
+void Player_Search_Collision(BaseVector* a, BaseVector* b);
+
 //プレイヤーと敵
 void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
 

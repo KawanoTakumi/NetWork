@@ -175,6 +175,7 @@
     <ClInclude Include="objChar.h" />
     <ClInclude Include="objID.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="SearchPlayer.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene_Base.h" />
     <ClInclude Include="Scene_Manager.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="SearchPlayer.cpp" />
     <ClCompile Include="Resoure.cpp" />
     <ClCompile Include="spawnPoint.cpp" />
     <ClCompile Include="sword.cpp" />

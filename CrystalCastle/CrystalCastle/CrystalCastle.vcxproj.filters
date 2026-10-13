@@ -137,6 +137,9 @@
     <ClInclude Include="healitem.h">
       <Filter>ヘッダー ファイル\オブジェクト\アイテム</Filter>
     </ClInclude>
+    <ClInclude Include="SearchPlayer.h">
+      <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -207,6 +210,9 @@
     </ClCompile>
     <ClCompile Include="healitem.cpp">
       <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchPlayer.cpp">
+      <Filter>ソース ファイル\オブジェクト\敵</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

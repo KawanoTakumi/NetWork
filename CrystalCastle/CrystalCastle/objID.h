@@ -41,4 +41,5 @@ enum class ObjID {
 	EFFECT,
 	SPAWN_EFFECT,
 	ITEM,
+	SEARCH,
 };
