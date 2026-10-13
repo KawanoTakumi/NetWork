@@ -127,7 +127,7 @@ void EnemyBase::Draw()
 	Point draw_pos = CameraToScreen(pos, map->camera);
 
 	//‘Ì—ÍƒQ[ƒW
-	DrawHpBar(draw_pos, hp, maxHp);
+	DrawCustomHpBar(draw_pos, hp, maxHp,0xeeeeee,0x04ff08,50,5);
 
 	//•`‰æŒü‚«	
 	sprite.LR_reverse_flag = false;

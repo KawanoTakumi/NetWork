@@ -30,7 +30,7 @@ void Resource::Load()
 	mapImg = LoadGraph("image\\map.png");
 	itemImg = LoadGraph("image\\item.png");
 
-	enemy_boss_01Img = LoadGraph("");
+	enemy_boss_01Img = LoadGraph("image\\Boss_1_King.png");
 	enemy_boss_02Img = LoadGraph("");
 	enemy_n_01Img    = LoadGraph("");
 	enemy_n_02Img    = LoadGraph("");

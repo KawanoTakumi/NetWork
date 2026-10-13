@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="3D_function.h" />
+    <ClInclude Include="BossBase.h" />
     <ClInclude Include="bow.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="2D_function.h" />
@@ -187,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3D_function.cpp" />
+    <ClCompile Include="BossBase.cpp" />
     <ClCompile Include="bow.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="2D_function.cpp" />

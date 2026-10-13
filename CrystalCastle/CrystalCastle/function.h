@@ -6,4 +6,5 @@
 //描画用座標変換（ワールド座標→画面座標）
 Point CameraToScreen(Point, Point);
 //体力バー
-void DrawHpBar(Point, int, int);//位置,現在のHP,最大HP
+void DrawHpBar(Point p, int hp, int maxhp);//位置,現在のHP,最大HP
+void DrawCustomHpBar(Point, int, int,int,int,int,int);//位置,現在のHP,最大HP,バックカラー、フロントカラー,幅、高さ

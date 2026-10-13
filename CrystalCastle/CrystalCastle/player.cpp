@@ -220,15 +220,12 @@ void CPlayer::Draw()
 	//描画位置を計算
 	Point draw_pos = CameraToScreen(pos, map->camera);
 	//体力ゲージ
-	DrawHpBar(draw_pos, hp, maxHp);
+	DrawCustomHpBar(draw_pos, hp, maxHp, 0xeeeeee, 0x04ff08,50,5);
 
 	if (!is_view_status)
 	{
 		//UIタイル
 		DrawBox(0, 0, 200, 80, GetColor(50, 50, 50), true);
-		//現在の武器ID
-		//DrawFormatString(300, 48, 0xffffff, "NowWeaponID = %d", NowUseWeaponID);
-		//DrawFormatString(300, 64, 0xffffff, "NowWeaponNo = %d", NowUseWeaponNo);
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qでステータス表示");
 	}
 	else
@@ -237,11 +234,11 @@ void CPlayer::Draw()
 		DrawBox(0, 0, 200, 140, GetColor(50, 50, 50), true);
 		//ステータス
 		DrawFormatString(0, 48, GetColor(255, 255, 255), "Qで閉じる");
-		DrawFormatString(0, 80, GetColor(255, 255, 255), "hp/maxHp : %d/%d", hp, maxHp);
-		DrawFormatString(0, 96, GetColor(255, 255, 255), "damage   : %d", calc_damage);
-		DrawFormatString(0, 112, GetColor(255, 255, 255), "exp      : %d", exp);
+		DrawFormatString(0, 80, GetColor(255, 255, 255), "体力        : %d/%d", hp, maxHp);
+		DrawFormatString(0, 96, GetColor(255, 255, 255), "経験値      : %d/%d", exp, lv * 10);
+		DrawFormatString(0, 112, GetColor(255, 255, 255),"攻撃力      : %d", calc_damage);
 	}
-	DrawFormatString(0, 64, GetColor(255, 255, 255), "Lv = %d", lv);
+	DrawFormatString(0, 64, GetColor(255, 255, 90),     "レベル      :%d", lv);
 
 	//プレイヤー
 	sprite.Draw(draw_pos.x, draw_pos.y);

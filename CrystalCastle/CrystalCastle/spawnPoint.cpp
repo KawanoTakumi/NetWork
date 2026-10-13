@@ -1,6 +1,7 @@
 #include "spawnPoint.h"
 #include "function.h"
 #include "EnemyBase.h"
+#include "BossBase.h"
 
 CSpawnPoint::CSpawnPoint(Point p, int no,CMap* _map) {
 	sprite.img = Resource::mapImg;
@@ -33,6 +34,9 @@ int CSpawnPoint::Action(const ObjList& base, ObjList& add_base)
 			{
 			case 0:
 				add_base.push_back(make_unique<EnemyBase>(pos, map,this,Range_Random_Number(0,2)));
+				break;
+			case 1:
+				add_base.push_back(make_unique<BossBase>(pos, map, this,0));
 				break;
 			}
 			enemyAlive = true;

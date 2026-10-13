@@ -140,6 +140,9 @@
     <ClInclude Include="SearchPlayer.h">
       <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
     </ClInclude>
+    <ClInclude Include="BossBase.h">
+      <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -212,6 +215,9 @@
       <Filter>ソース ファイル\オブジェクト\アイテム</Filter>
     </ClCompile>
     <ClCompile Include="SearchPlayer.cpp">
+      <Filter>ソース ファイル\オブジェクト\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBase.cpp">
       <Filter>ソース ファイル\オブジェクト\敵</Filter>
     </ClCompile>
   </ItemGroup>
