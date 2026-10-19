@@ -30,6 +30,10 @@ void CollisionUpDate(ObjList& base) {
 				Player_Enemy_Collision(a, b);
 			}
 
+			//プレイヤーと敵攻撃あたり判定
+			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ENEMY_PROJ) {
+				Player_EnemyProj_Collision(a, b);
+			}
 			//プレイヤーとアイテム
 			if (a->ID == (int)ObjID::PLAYER && b->ID == (int)ObjID::ITEM) {
 				Player_Item_Collision(a, b);
@@ -79,6 +83,23 @@ void Player_Enemy_Collision(BaseVector* a, BaseVector* b)
 
 		v = Vector_SetLength(v, 15);
 		player->Damage(1, v);
+	}
+}
+
+//プレイヤーと敵攻撃
+void Player_EnemyProj_Collision(BaseVector* a, BaseVector* b)
+{
+	if (HitCheck_Box_Circle(a, b, 32))
+	{
+		CDamageObj* player = dynamic_cast<CDamageObj*>(a);
+		Vector v{
+			a->pos.x - b->pos.x,
+			a->pos.y - b->pos.y
+		};
+
+		v = Vector_SetLength(v, 15);
+		player->Damage(1, v);
+		b->FLAG = false;//当たったら削除
 	}
 }
 

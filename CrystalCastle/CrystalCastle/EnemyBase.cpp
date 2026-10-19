@@ -3,6 +3,7 @@
 #include "spawnPoint.h"
 #include "expItem.h"
 #include "healitem.h"
+#include "EnemyProjectile.h"
 
 EnemyBase::EnemyBase(Point p, CMap* _map,CSpawnPoint* _sp,int _No)
 {
@@ -106,6 +107,14 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	//ノックバック処理
 	if (UpdateKnockBack(map))return 0;
 
+	//弾丸発射処理
+	shoot_timer--;
+	if (shoot_timer < 0)
+	{
+		Shoot(add_base);
+		shoot_timer = 60.0f;
+	}
+
 	//HPがなくなった場合、オブジェクト解除
 	if (hp <= 0) {
 		
@@ -150,6 +159,7 @@ void EnemyBase::UpdateDir(Point target)
 		Dir = (dy > 0) ? DOWN : UP;
 }
 
+//プレイヤー追尾
 void EnemyBase::HomingPlayer()
 {
 	//プレイヤーがいない場合は終了
@@ -162,4 +172,17 @@ void EnemyBase::HomingPlayer()
 	
 	//プレイヤーの方向に移動する
 	vec = Vector_SetLength(homing_vec, 2);
+}
+
+//弾丸発射
+void EnemyBase::Shoot(ObjList& add_base)
+{
+	//プレイヤーがいない場合は終了
+	if (target == nullptr)return;
+
+	Vector shoot_vec{
+		shoot_vec.x = target->pos.x - pos.x,
+		shoot_vec.y = target->pos.y - pos.y
+	};
+	add_base.push_back(make_unique<CEnemyProjectile>(pos,shoot_vec,map));
 }

@@ -22,6 +22,7 @@ public:
 	static int enemy_n_02Img;
 	static int enemy_boss_01Img;
 	static int enemy_boss_02Img;
+	static int enemy_projectile_Img;
 
 	//�󕨉摜
 	static int treasure_Img;

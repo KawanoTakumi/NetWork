@@ -11,10 +11,10 @@ CBow::CBow(Point p, Vector v,int _No, int _calc_damage, CMap* _m) {
 	sprite.height = 32;
 	sprite.cutX = _No * sprite.width;
 	pos = p;
-	vec = Vector_SetLength(v, 4.0f * (_No+1));
+	vec = Vector_SetLength(v, 4.0f * (_No+1));//仮
 
 	sprite.angle = atan2(vec.y, vec.x);
-	calc_damage = _calc_damage;//仮のダメージ
+	calc_damage = _calc_damage;//計算後のダメージ
 	map = _m;
 	ID = (int)ObjID::WEAPON;
 	pri = 1;
@@ -29,6 +29,7 @@ int CBow::Action(const ObjList& base, ObjList& add_base)
 	if (!map->CanMove(pos, 32, 32))
 		FLAG = false;
 
+	//一定時間経過したら消す
 	life--;
 	if (life == 0)FLAG = false;
 

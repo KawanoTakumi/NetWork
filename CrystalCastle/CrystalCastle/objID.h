@@ -37,6 +37,7 @@ enum class ObjID {
 	PLAYER,
 	WEAPON,
 	ENEMY,
+	ENEMY_PROJ,
 	BOW,
 	EFFECT,
 	SPAWN_EFFECT,

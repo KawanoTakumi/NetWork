@@ -10,6 +10,9 @@ void Player_Search_Collision(BaseVector* a, BaseVector* b);
 //プレイヤーと敵
 void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
 
+//プレイヤーと敵の攻撃
+void Player_EnemyProj_Collision(BaseVector* a, BaseVector* b);
+
 //プレイヤーとアイテム
 void Player_Item_Collision(BaseVector* a, BaseVector* b);
 

@@ -143,6 +143,9 @@
     <ClInclude Include="BossBase.h">
       <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyProjectile.h">
+      <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -218,6 +221,9 @@
       <Filter>ソース ファイル\オブジェクト\敵</Filter>
     </ClCompile>
     <ClCompile Include="BossBase.cpp">
+      <Filter>ソース ファイル\オブジェクト\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyProjectile.cpp">
       <Filter>ソース ファイル\オブジェクト\敵</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,6 +13,7 @@ int Resource::enemy_boss_01Img;
 int Resource::enemy_boss_02Img;
 int Resource::enemy_n_01Img;
 int Resource::enemy_n_02Img;
+int Resource::enemy_projectile_Img;
 int Resource::weaponImg;
 int Resource::magicImg;
 int Resource::treasure_Img;
@@ -32,6 +33,7 @@ void Resource::Load()
 
 	enemy_boss_01Img = LoadGraph("image\\Boss_1_King.png");
 	enemy_boss_02Img = LoadGraph("");
+	enemy_projectile_Img = LoadGraph("image\\bow.png");
 	enemy_n_01Img    = LoadGraph("");
 	enemy_n_02Img    = LoadGraph("");
 	weaponImg        = LoadGraph("image\\TestWeapon.png");//テスト用武器画像
