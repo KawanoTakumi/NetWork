@@ -4,20 +4,22 @@
 class CMap {
 public:
 	//マップチップ数
-	static constexpr int MAP_CHIP_X = 256;
-	static constexpr int MAP_CHIP_Y = 88;
+	static constexpr int MAP_CHIP_X = 250;
+	static constexpr int MAP_CHIP_Y = 100;
 	//マップサイズ
 	static constexpr int MAP_SIZE_X = CHIP_SIZE_X * MAP_CHIP_X;
 	static constexpr int MAP_SIZE_Y = CHIP_SIZE_Y * MAP_CHIP_Y;
 	//描画チップ数
-	static constexpr int DRAW_CHIP_X = 14;
-	static constexpr int DRAW_CHIP_Y = 12;
+	static constexpr int DRAW_CHIP_X = 14 * 2;
+	static constexpr int DRAW_CHIP_Y = 12 * 2;
 	//描画サイズ
 	static constexpr int DRAW_WIDTH = DRAW_CHIP_X * CHIP_SIZE_X;
 	static constexpr int DRAW_HEIGHT = DRAW_CHIP_Y * CHIP_SIZE_Y;
 	//カメラの限界位置
 	static constexpr Point CAMERA_INIT{ 0, 0 };
 	static constexpr Point CAMERA_END{ MAP_CHIP_X * CHIP_SIZE_X - DRAW_WIDTH,MAP_CHIP_Y * CHIP_SIZE_Y - DRAW_HEIGHT };
+	//画像の改行
+	static constexpr int NEXT_LINE = 24;
 
 	CMap();
 	~CMap() { DeleteGraph(img); }

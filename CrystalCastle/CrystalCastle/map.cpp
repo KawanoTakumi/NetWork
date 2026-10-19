@@ -34,12 +34,12 @@ CMap::CMap() {
 	}
 
 	//カメラ座標初期位置
-	camera.x = 7260;
-	camera.y = 5370;
+	camera.x = 0;
+	camera.y = 0;
 
 	//マップデータ読み込み(後でメンバー関数化）
 	int stage = 1;
-	ifstream fp("image\\map.txt");
+	ifstream fp("image\\test_map.txt");
 	string str;
 
 	if (!fp.fail()) {
@@ -139,7 +139,7 @@ bool CMap::CanMove(Point p, int width, int height) {
 //指定したマップチップが壁かどうかを判定
 bool CMap::IsWall(int chip)
 {
-	return (chip != 0 && chip != 9 && chip != 27 && chip != 28 && chip != 18 && chip != 30);
+	return (chip >= 192);
 }
 
 //マップ描画
@@ -157,14 +157,16 @@ void CMap::Draw() {
 			DrawRectGraph(
 				(int)(mx * CHIP_SIZE_X - camera.x),
 				(int)(my * CHIP_SIZE_Y - camera.y),
-				(chip % 10) * CHIP_SIZE_X,
-				(chip / 10) * CHIP_SIZE_Y,
+				(chip % NEXT_LINE) * CHIP_SIZE_X,
+				(chip / NEXT_LINE) * CHIP_SIZE_Y,
 				CHIP_SIZE_X,
 				CHIP_SIZE_Y,
-				img,
+				Resource::map_cave_Img,
 				true,
 				false
 			);
 		}
 	}
+
+	DrawFormatString(WINDOW_HEIGHT / 2, 16, 0xffffff, "%d,%d", BaseChipNoX, BaseChipNoY);
 }

@@ -88,7 +88,7 @@ int CGame::UpDate(){
 //•`‰æˆ—
 void CGame::Draw()
 {
-	DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 0x6b8d1c, true);
+	//DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 0x6b8d1c, true);
 
 	//ƒ}ƒbƒv‚Ì•`‰æ
 	map->Draw();

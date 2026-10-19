@@ -215,6 +215,7 @@ void CPlayer::CalcDamage(int _Weap_type, int _Weap_no)
 
 	calc_damage = type_value * no_value + base_damage;
 }
+
 void CPlayer::Draw()
 {
 	//•`‰æˆÊ’u‚ðŒvŽZ
