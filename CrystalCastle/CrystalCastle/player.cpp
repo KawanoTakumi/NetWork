@@ -200,7 +200,7 @@ void CPlayer::GetLevel(int exp)
 		//lv99‚ÅƒJƒ“ƒXƒg
 		if (lv > 99) return;
 		maxHp += 5;
-		hp += 5;
+		hp = maxHp;
 		base_damage = lv * 1.2;
 		CalcDamage(NowUseWeaponID, NowUseWeaponNo);
 	}

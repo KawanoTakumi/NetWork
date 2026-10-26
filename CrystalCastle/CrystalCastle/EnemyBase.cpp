@@ -111,8 +111,15 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	shoot_timer--;
 	if (shoot_timer < 0)
 	{
-		Shoot(add_base);
-		shoot_timer = 60.0f;
+		if(shoot_count < 2)
+			Shoot(add_base);
+		else
+		{
+			Mul_Shoot(add_base,15,1);
+			shoot_count = 0;
+		}
+		shoot_timer = MAX_SHOOT_TIMER;
+		shoot_count++;
 	}
 
 	//HPがなくなった場合、オブジェクト解除
@@ -185,4 +192,29 @@ void EnemyBase::Shoot(ObjList& add_base)
 		shoot_vec.y = target->pos.y - pos.y
 	};
 	add_base.push_back(make_unique<CEnemyProjectile>(pos,shoot_vec,map));
+}
+
+//弾丸扇発射
+void EnemyBase::Mul_Shoot(ObjList& add_base, float _angle,int _count)
+{
+	if (target == nullptr)return;
+
+	//中央の弾丸のベクトル作成
+	Vector shoot_vec{
+	shoot_vec.x = target->pos.x - pos.x,
+	shoot_vec.y = target->pos.y - pos.y
+	};
+
+	//左右に角度毎に展開
+	for (int i = 0; i < _count; i++)
+	{
+		Vector right_Vec = Vector_Rotation(shoot_vec, _angle);
+		Vector left_Vec = Vector_Rotation(shoot_vec, -_angle);
+		_angle += _angle;
+		add_base.push_back(make_unique<CEnemyProjectile>(pos,right_Vec, map));
+		add_base.push_back(make_unique<CEnemyProjectile>(pos,left_Vec, map));
+
+	}
+	//中央の弾丸発射
+	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map));
 }

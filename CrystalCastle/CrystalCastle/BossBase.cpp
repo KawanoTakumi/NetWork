@@ -14,7 +14,7 @@ BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 	sprite.width = ImgWidth = 64;
 	sprite.height = ImgHeight = 64;
 
-	HP(No * 4 + 10);//HP初期化
+	HP(100);//HP初期化
 
 	//スポーン位置保存
 	spawn = _sp;

@@ -91,7 +91,8 @@ public:
 	int ItemID{ -1 };//アイテムのID・・・ObjIDとは別
 
 	//初期位置
-	Point startPos = { 336,336 };
+	//Point startPos = { 336,336 };
+	Point startPos = { 336,1336 };
 
 	//タイマー
 	int moveTimer{ 0 };

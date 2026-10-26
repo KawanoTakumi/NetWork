@@ -69,7 +69,7 @@ void CMap::Map_Create(ObjList& base) {
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
 		for (int x = 0; x < MAP_CHIP_X; x++) {
 
-			if (map[y][x] == 30)
+			if (map[y][x] == 126)
 			{
 				//イメージ,　位置, No, マップ
 				Point p{ x * CHIP_SIZE_X,y * CHIP_SIZE_Y };
