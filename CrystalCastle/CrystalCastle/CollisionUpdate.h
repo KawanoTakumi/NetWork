@@ -1,0 +1,20 @@
+//当たり判定用関数
+#pragma once
+#include "objBase.h"
+
+//当たり判定メイン関数
+void CollisionUpDate(ObjList&);
+
+void Player_Search_Collision(BaseVector* a, BaseVector* b);
+
+//プレイヤーと敵
+void Player_Enemy_Collision(BaseVector* a, BaseVector* b);
+
+//プレイヤーと敵の攻撃
+void Player_EnemyProj_Collision(BaseVector* a, BaseVector* b);
+
+//プレイヤーとアイテム
+void Player_Item_Collision(BaseVector* a, BaseVector* b);
+
+//敵と武器
+void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b);
