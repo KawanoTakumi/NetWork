@@ -50,7 +50,7 @@ CGame::CGame(CManager* p) :CScene(p){
 			continue;
 		}
 		//•Ší‚ğ¶¬
-		base.push_back(make_unique<WeaponBaseItem>(Range_Random_Number(0,2), Range_Random_Number(0, 2), _p, map.get()));
+		base.push_back(make_unique<WeaponBaseItem>(Range_Random_Number(0,2), Range_Random_Number(0, WEAPON_SIZE), _p, map.get()));
 	}
 	
 	//“ÁêƒuƒƒbƒN¶¬

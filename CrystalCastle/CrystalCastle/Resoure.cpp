@@ -36,7 +36,7 @@ void Resource::Load()
 	enemy_projectile_Img = LoadGraph("image\\Enemy_Bullet.png");
 	enemy_n_01Img    = LoadGraph("");
 	enemy_n_02Img    = LoadGraph("");
-	weaponImg        = LoadGraph("image\\TestWeapon.png");//テスト用武器画像
+	weaponImg        = LoadGraph("image\\Weapon.png");//テスト用武器画像
 	magicImg         = LoadGraph("image\\TestMagic.png");//テスト用魔法弾
 	treasure_Img     = LoadGraph("image\\TreasureItem.png");
 	map_cave_Img     = LoadGraph("image\\Tile_Caves.png");
