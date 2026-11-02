@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalCastle_Server", "CrystalCastle_Server\CrystalCastle_Server.vcxproj", "{D764275E-6BFD-4D29-BBFC-09050CD6BD59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Debug|x64.ActiveCfg = Debug|x64
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Debug|x64.Build.0 = Debug|x64
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Debug|x86.ActiveCfg = Debug|Win32
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Debug|x86.Build.0 = Debug|Win32
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Release|x64.ActiveCfg = Release|x64
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Release|x64.Build.0 = Release|x64
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Release|x86.ActiveCfg = Release|Win32
+		{D764275E-6BFD-4D29-BBFC-09050CD6BD59}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D6A6EEF-E7EE-4495-B2C4-6B5704692DC3}
+	EndGlobalSection
+EndGlobal
