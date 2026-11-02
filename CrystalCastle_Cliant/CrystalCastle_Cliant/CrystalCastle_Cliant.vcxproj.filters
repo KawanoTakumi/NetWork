@@ -226,5 +226,8 @@
     <ClCompile Include="EnemyProjectile.cpp">
       <Filter>ソース ファイル\オブジェクト\敵</Filter>
     </ClCompile>
+    <ClCompile Include="ip_set.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
