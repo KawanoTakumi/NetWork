@@ -11,6 +11,7 @@ CSword::CSword(Point p, int _dir,int _No,int _calc_damage,CMap* _map)
 	sprite.cutY = 0;
 	sprite.width = 32;
 	sprite.height =32;
+	sprite.scale = 2.0f;
 	pos = p;
 	Dir = _dir;
 	map = _map;

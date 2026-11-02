@@ -1,7 +1,7 @@
 #pragma once
 #include "objBase.h"
 #include "map.h"
-//武器のベースクラス
+
 
 class WeaponBaseItem : public BaseVector
 {

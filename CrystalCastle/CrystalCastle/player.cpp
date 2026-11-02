@@ -70,10 +70,10 @@ int CPlayer::Action(const ObjList& base, ObjList& add_base)
 
 	if (!isAttack) {
 		//キー入力
-		if (CheckHitKey(KEY_INPUT_A) || (PAD_INFO & PAD_INPUT_LEFT)) vec.x = -1.0f;
-		if (CheckHitKey(KEY_INPUT_D) || (PAD_INFO & PAD_INPUT_RIGHT)) vec.x = 1.0f;
-		if (CheckHitKey(KEY_INPUT_W) || (PAD_INFO & PAD_INPUT_UP)) vec.y = -1.0f;
-		if (CheckHitKey(KEY_INPUT_S) || (PAD_INFO & PAD_INPUT_DOWN)) vec.y = 1.0f;
+		if (CheckHitKey(KEY_INPUT_A) || (PAD_INFO & PAD_INPUT_LEFT)) vec.x = -5.0f;
+		if (CheckHitKey(KEY_INPUT_D) || (PAD_INFO & PAD_INPUT_RIGHT)) vec.x = 5.0f;
+		if (CheckHitKey(KEY_INPUT_W) || (PAD_INFO & PAD_INPUT_UP)) vec.y = -5.0f;
+		if (CheckHitKey(KEY_INPUT_S) || (PAD_INFO & PAD_INPUT_DOWN)) vec.y = 5.0f;
 
 		//ステータス表示
 		if ((CheckHitKey(KEY_INPUT_Q) || (PAD_INFO & PAD_INPUT_START)) && (!key[(PAD_INFO & PAD_INPUT_START)] && !key[KEY_INPUT_Q]))
@@ -184,6 +184,7 @@ void CPlayer::Respawn()
 {
 	hp = maxHp;//体力全快
 	pos = startPos;//初期位置
+	lv = lv / 2;//レベル半減
 }
 //経験値取得
 void CPlayer::GetEXP(int _exp)
@@ -199,9 +200,9 @@ void CPlayer::GetLevel(int exp)
 		lv++;
 		//lv99でカンスト
 		if (lv > 99) return;
-		maxHp += 5;
+		maxHp = lv * 5 + 10;
 		hp = maxHp;
-		base_damage = lv * 1.2;
+		base_damage = lv * 1.2 + 1;
 		CalcDamage(NowUseWeaponID, NowUseWeaponNo);
 	}
 }
@@ -209,7 +210,7 @@ void CPlayer::GetLevel(int exp)
 //最終攻撃力計算
 void CPlayer::CalcDamage(int _Weap_type, int _Weap_no)
 {
-	//2の部分は武器の種類数-1
+	//武器種を増やしたなら２をその分増加
 	int type_value = abs(_Weap_type - 2);
 	int no_value = _Weap_no+1;
 

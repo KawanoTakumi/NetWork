@@ -27,7 +27,7 @@ constexpr auto WINDOW_HEIGHT = 768;	//ウィンドウ縦幅
 //基本チップサイズ
 constexpr auto CHIP_SIZE_X = 32;
 constexpr auto CHIP_SIZE_Y = 32;
-constexpr auto WEAPON_SIZE = 2;
+constexpr auto WEAPON_SIZE = 5;//武器数・・・武器の画像横の個数ー１
 
 //グローバルスコア
 extern int G_SCORE;//全プレイヤー共通のスコア
