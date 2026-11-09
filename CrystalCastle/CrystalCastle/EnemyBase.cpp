@@ -112,10 +112,10 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	if (shoot_timer < 0)
 	{
 		if(shoot_count < 2)
-			Shoot(add_base);
+			Shoot(add_base,NPCBase::PROJ_ID::BULLET,0);
 		else
 		{
-			Mul_Shoot(add_base,15,1);
+			Mul_Shoot(add_base,15,1, NPCBase::PROJ_ID::BULLET,0);
 			shoot_count = 0;
 		}
 		shoot_timer = MAX_SHOOT_TIMER;
@@ -152,69 +152,4 @@ void EnemyBase::Draw()
 	if (Dir == DOWN)sprite.UD_reverse_flag = true;
 
 	sprite.Draw(draw_pos.x, draw_pos.y);
-}
-
-//向きの更新処理
-void EnemyBase::UpdateDir(Point target)
-{
-	float dx = target.x - pos.x;
-	float dy = target.y - pos.y;
-
-	if (fabs(dx) > fabs(dy))
-		Dir = (dx > 0) ? RIGHT : LEFT;
-	else
-		Dir = (dy > 0) ? DOWN : UP;
-}
-
-//プレイヤー追尾
-void EnemyBase::HomingPlayer()
-{
-	//プレイヤーがいない場合は終了
-	if (target == nullptr)return;
-
-	Vector homing_vec{
-		homing_vec.x = target->pos.x - pos.x,
-		homing_vec.y = target->pos.y - pos.y
-	};
-	
-	//プレイヤーの方向に移動する
-	vec = Vector_SetLength(homing_vec, 2);
-}
-
-//弾丸発射
-void EnemyBase::Shoot(ObjList& add_base)
-{
-	//プレイヤーがいない場合は終了
-	if (target == nullptr)return;
-
-	Vector shoot_vec{
-		shoot_vec.x = target->pos.x - pos.x,
-		shoot_vec.y = target->pos.y - pos.y
-	};
-	add_base.push_back(make_unique<CEnemyProjectile>(pos,shoot_vec,map));
-}
-
-//弾丸扇発射
-void EnemyBase::Mul_Shoot(ObjList& add_base, float _angle,int _count)
-{
-	if (target == nullptr)return;
-
-	//中央の弾丸のベクトル作成
-	Vector shoot_vec{
-	shoot_vec.x = target->pos.x - pos.x,
-	shoot_vec.y = target->pos.y - pos.y
-	};
-
-	//左右に角度毎に展開
-	for (int i = 0; i < _count; i++)
-	{
-		Vector right_Vec = Vector_Rotation(shoot_vec, _angle);
-		Vector left_Vec = Vector_Rotation(shoot_vec, -_angle);
-		_angle += _angle;
-		add_base.push_back(make_unique<CEnemyProjectile>(pos,right_Vec, map));
-		add_base.push_back(make_unique<CEnemyProjectile>(pos,left_Vec, map));
-
-	}
-	//中央の弾丸発射
-	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map));
 }

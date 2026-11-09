@@ -1,10 +1,10 @@
 #pragma once
-#include "damageObj.h"
+#include "NPCBase.h"
 #include "SearchPlayer.h"
 
 class CSpawnPoint;
 
-class BossBase : public CDamageObj
+class BossBase : public NPCBase
 {
 public:
 	//Œü‚«
@@ -13,7 +13,6 @@ public:
 	BossBase(Point, CMap*, CSpawnPoint*, int);
 	int Action(const ObjList&, ObjList&);
 	void Draw();
-	void UpdateDir(Point);	//Œü‚«XV
 
 	CSpawnPoint* spawn{ nullptr };
 	float move_speed{ 1.3f };

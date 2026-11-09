@@ -1,12 +1,12 @@
 #pragma once
-#include "EnemyBase.h"
+#include "NPCBase.h"
 
-class EnemyBase;
+class NPCBase;
 
 class CSearchPlayer : public  CDamageObj
 {
 public:
-	CSearchPlayer(EnemyBase*, CMap*);
+	CSearchPlayer(NPCBase*, CMap*);
 	int Action(const ObjList&, ObjList&);
 	void Draw();
 
@@ -14,5 +14,5 @@ public:
 	float search_length = 500.0f;//探索範囲
 	CDamageObj* target = {nullptr};
 private:
-	EnemyBase* enemy_base{ nullptr };//親オブジェクト
+	NPCBase* enemy_base{ nullptr };//親オブジェクト
 };

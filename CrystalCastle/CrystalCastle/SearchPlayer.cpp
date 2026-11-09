@@ -1,6 +1,6 @@
 #include "SearchPlayer.h"
 
-CSearchPlayer::CSearchPlayer(EnemyBase* _enemy_base,CMap* _map)
+CSearchPlayer::CSearchPlayer(NPCBase* _enemy_base,CMap* _map)
 {
 	map = _map;
 	enemy_base = _enemy_base;

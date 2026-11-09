@@ -3,6 +3,7 @@
 #include "spawnPoint.h"
 #include "expItem.h"
 #include "healitem.h"
+#include "EnemyProjectile.h"
 
 BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 {
@@ -24,7 +25,7 @@ BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 	pos = p;
 
 	ID = (int)ObjID::ENEMY;
-	pri = 2;
+	pri = 3;
 
 	//最初の移動方向を設定
 	switch (Range_Random_Number(0, 3))
@@ -38,6 +39,12 @@ BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 
 int BossBase::Action(const ObjList& base, ObjList& add_base)
 {
+	//プレイヤー探索用のオブジェクトを生成
+	if (!create_search_obj)
+	{
+		add_base.push_back(make_unique<CSearchPlayer>(this, map));
+		create_search_obj = true;
+	}
 
 	//移動処理（ノックバックとは別）
 	{
@@ -77,21 +84,52 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 			case 3: vec.x = -move_speed; vec.y = 0; break;//左
 			}
 		}
-		////アニメーション
-		//animTimer++;
-		//if (animTimer >= 15)
-		//{
-		//	animTimer = 0;
-		//	animFrame++;
-		//	if (animFrame > 1)
-		//		animFrame = 0;
-		//}
-		//sprite.cutX = animFrame * sprite.width + (No * 64);
+		//アニメーション
+		animTimer++;
+		if (animTimer >= 15)
+		{
+			animTimer = 0;
+			animFrame++;
+			if (animFrame > 1)
+				animFrame = 0;
+		}
+		sprite.cutX = animFrame * sprite.width + (No * 64);
 
-		//if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
-		//if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
+		if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
+		if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
 
 	}
+	HomingPlayer();
+
+
+
+	//無敵時間
+	if (damageCoolTime > 0)damageCoolTime--;
+	//ノックバック処理
+	if (UpdateKnockBack(map))return 0;
+
+	//弾丸発射処理
+	shoot_timer--;
+	if (shoot_timer < 0)
+	{
+		if (shoot_count < 2)
+		{
+			Beam_Shoot(add_base,7,NPCBase::PROJ_ID::BEAM,0);
+		}
+		else if (shoot_count >= 2 && shoot_count < 4)
+		{
+			Mul_Shoot(add_base, 30, 2, NPCBase::PROJ_ID::BULLET,1);
+		}
+		else
+			shoot_count = 0;
+		shoot_timer = MAX_SHOOT_TIMER*2;
+		shoot_count++;
+	}
+
+
+
+
+
 	//無敵時間
 	if (damageCoolTime > 0)damageCoolTime--;
 	//ノックバック処理
@@ -122,20 +160,6 @@ void BossBase::Draw()
 	//描画向き	
 	sprite.LR_reverse_flag = false;
 	sprite.UD_reverse_flag = false;
-	//if (Dir == LEFT)sprite.LR_reverse_flag = true;
-	//if (Dir == DOWN)sprite.UD_reverse_flag = true;
 
 	sprite.Draw(draw_pos.x, draw_pos.y);
-}
-
-//向きの更新処理
-void BossBase::UpdateDir(Point target)
-{
-	float dx = target.x - pos.x;
-	float dy = target.y - pos.y;
-
-	if (fabs(dx) > fabs(dy))
-		Dir = (dx > 0) ? RIGHT : LEFT;
-	else
-		Dir = (dy > 0) ? DOWN : UP;
 }

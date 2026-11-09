@@ -1,14 +1,16 @@
 #include "EnemyProjectile.h"
 #include "function.h"
-CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map)
+#include "player.h"
+CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map,int _id,int _no)
 {
 	pos = _pos;
 	vec = Vector_SetLength(_vec, 6.0f);//‰¼
 	HP(1);
 	map = _map;
+	proj_id = _id;
 	sprite.img = Resource::enemy_projectile_Img;
-	sprite.cutX = 0;
-	sprite.cutY = 0;
+	sprite.cutX = _no*32;//No–ˆ‚É’e‚Ì‰æ‘œ‚ğ•Ï‚¦‚é
+	sprite.cutY = _id*32;//ID–ˆ‚É’e‚Ìí—Ş‚ğ•Ï‚¦‚é
 	sprite.width = 32;
 	sprite.height = 32;
 	sprite.angle = atan2(vec.y, vec.x);
@@ -18,11 +20,23 @@ CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map)
 
 int CEnemyProjectile::Action(const ObjList& base,ObjList& add_base)
 {
-	pos = Add_Point_Vector(pos, vec);
+	switch (proj_id)
+	{
+	default:
+		break;
+	case 0:case 1:
+	{
+		pos = Add_Point_Vector(pos, vec);
 
-	//‹|–î‚Ìê‡A•Ç‚ğŠÑ’Ê‚µ‚È‚¢
-	if (!map->CanMove(pos, 32, 32))
-		FLAG = false;
+		//•Ç‚ğŠÑ’Ê‚µ‚È‚¢
+		if (!map->CanMove(pos, 32, 32))
+			FLAG = false;
+	}break;
+
+
+	}
+
+
 
 	//ˆê’èŠÔŒo‰ß‚µ‚½‚çÁ‚·
 	life--;

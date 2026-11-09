@@ -173,6 +173,7 @@
     <ClInclude Include="magic.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="NPCBase.h" />
     <ClInclude Include="objBase.h" />
     <ClInclude Include="objChar.h" />
     <ClInclude Include="objID.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="magic.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="NPCBase.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="SearchPlayer.cpp" />
     <ClCompile Include="Resoure.cpp" />
