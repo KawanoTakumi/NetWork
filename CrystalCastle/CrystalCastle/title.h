@@ -11,7 +11,7 @@ public:
 	CTitle(CManager*);
 
 	//デストラクタ
-	~CTitle();
+	~CTitle() {};
 
 	int UpDate();//更新処理
 	void Draw();//描画処理

@@ -149,6 +149,12 @@
     <ClInclude Include="NPCBase.h">
       <Filter>ヘッダー ファイル\オブジェクト\敵</Filter>
     </ClInclude>
+    <ClInclude Include="title.h">
+      <Filter>ヘッダー ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="clear.h">
+      <Filter>ヘッダー ファイル\シーン</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -231,6 +237,12 @@
     </ClCompile>
     <ClCompile Include="NPCBase.cpp">
       <Filter>ソース ファイル\オブジェクト\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="title.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="clear.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

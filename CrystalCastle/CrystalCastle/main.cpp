@@ -2,6 +2,7 @@
 #include "main.h"
 #include "Scene_Manager.h"
 #include "game.h"
+#include "title.h"
 
 constexpr auto FPS = 60;//基本FPS
 
@@ -42,7 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE,
 
 	//初回シーンの生成
 	//manager->scene = new CGame(manager);
-	manager->Scene_Change(make_unique<CGame>(manager.get()));
+	manager->Scene_Change(make_unique<CTitle>(manager.get()));
 
 	//ループ
 	while (true) {

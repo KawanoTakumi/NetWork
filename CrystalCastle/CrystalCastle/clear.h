@@ -11,7 +11,7 @@ public:
 	CClear(CManager*);
 
 	//デストラクタ
-	~CClear();
+	~CClear() {};
 
 	int UpDate();//更新処理
 	void Draw();//描画処理
