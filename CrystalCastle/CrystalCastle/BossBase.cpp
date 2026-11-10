@@ -85,18 +85,18 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 			}
 		}
 		//アニメーション
-		animTimer++;
-		if (animTimer >= 15)
-		{
-			animTimer = 0;
-			animFrame++;
-			if (animFrame > 1)
-				animFrame = 0;
-		}
-		sprite.cutX = animFrame * sprite.width + (No * 64);
+		//animTimer++;
+		//if (animTimer >= 15)
+		//{
+		//	animTimer = 0;
+		//	animFrame++;
+		//	if (animFrame > 1)
+		//		animFrame = 0;
+		//}
+		//sprite.cutX = animFrame * sprite.width + (No * 64);
 
-		if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
-		if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
+		//if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
+		//if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
 
 	}
 	HomingPlayer();
@@ -122,7 +122,7 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 		}
 		else
 			shoot_count = 0;
-		shoot_timer = MAX_SHOOT_TIMER*2;
+		shoot_timer = MAX_SHOOT_TIMER*3;
 		shoot_count++;
 	}
 

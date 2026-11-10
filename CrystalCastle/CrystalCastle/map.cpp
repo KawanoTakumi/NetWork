@@ -69,12 +69,12 @@ void CMap::Map_Create(ObjList& base) {
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
 		for (int x = 0; x < MAP_CHIP_X; x++) {
 
+			//敵出現ポイント
 			if (map[y][x] == 126)
 			{
-				//イメージ,　位置, No, マップ
 				Point p{ x * CHIP_SIZE_X,y * CHIP_SIZE_Y };
-				//base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
-				base.push_back(make_unique<CSpawnPoint>(p,1,this));//仮ボス設置
+				base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
+				//base.push_back(make_unique<CSpawnPoint>(p,1,this));//仮ボス設置
 			}
 		}
 	}

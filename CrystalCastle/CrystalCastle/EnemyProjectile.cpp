@@ -32,7 +32,7 @@ int CEnemyProjectile::Action(const ObjList& base,ObjList& add_base)
 		if (!map->CanMove(pos, 32, 32))
 			FLAG = false;
 	}break;
-
+	
 
 	}
 
