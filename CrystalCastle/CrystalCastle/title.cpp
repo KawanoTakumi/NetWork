@@ -15,5 +15,8 @@ int CTitle::UpDate() {
 }
 
 void CTitle::Draw() {
-	DrawFormatString(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0xffffff, "GameStartÅFENTER");
+	SetFontSize(64);
+	DrawFormatString(WINDOW_WIDTH / 2 - 200, 150, 0xffffff, "CrystalCastle");
+	SetFontSize(16);
+	DrawFormatString(WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT / 2, 0xffffff, "GameStartÅFENTER");
 }
