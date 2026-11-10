@@ -26,7 +26,6 @@ BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 
 	ID = (int)ObjID::ENEMY;
 	pri = 3;
-
 	//最初の移動方向を設定
 	switch (Range_Random_Number(0, 3))
 	{
@@ -138,8 +137,12 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 	//HPがなくなった場合、オブジェクト解除
 	if (hp <= 0) {
 
+		//ボスの場合ここで倒された時点でスポーンポイントを削除する
 		if (spawn != nullptr)
+		{
 			spawn->enemyAlive = false;
+			spawn->Destroy();
+		}
 
 		//アイテムを生成
 		add_base.push_back(make_unique<CItemExp>(pos, map, 20 + 3 * No));

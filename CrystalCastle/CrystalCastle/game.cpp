@@ -3,12 +3,14 @@
 #include "CollisionUpdate.h"
 #include "function.h"
 #include "Resource.h"
+#include "clear.h"
 
 #include "player.h"
 #include "TreasureBaseItem.h"
 #include "WeaponBaseItem.h"
 
 int G_SCORE = 0;
+int G_BOSS_COUNT = 0;
 
 //コンストラクタ
 CGame::CGame(CManager* p) :CScene(p){
@@ -76,6 +78,13 @@ int CGame::UpDate(){
 	//当たり判定処理
 	CollisionUpDate(base);
 
+	//クリア判定
+	if (G_BOSS_COUNT <= 0)
+	{
+		manager->Scene_Change(make_unique<CClear>(manager));
+	}
+
+
 	//削除処理
 	erase_if(base, [](const auto& obj) {return !obj->FLAG; });
 
@@ -99,6 +108,9 @@ void CGame::Draw()
 	//オブジェクト個数
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "Object_Count = %d", base.size());
 	DrawFormatString(0, 32, GetColor(255, 255, 0), "SCORE = %d", G_SCORE);
+
+	//デバッグ用
+	DrawFormatString(240, 0, GetColor(255, 255, 255), "Boss_Count = %d", G_BOSS_COUNT);
 }
 
 CGame::~CGame()

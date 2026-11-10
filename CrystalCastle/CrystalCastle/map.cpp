@@ -73,11 +73,17 @@ void CMap::Map_Create(ObjList& base) {
 			//敵出現ポイント
 			if (map[y][x] == 126)
 			{
-				base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
+				//base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
+
+				//デバッグ用
+				G_BOSS_COUNT++;//ここでボスの出現数カウントを計上しておく
+				base.push_back(make_unique<CSpawnPoint>(p, 1, this));//仮ボス設置
+
 			}
 			//ボス出現ポイント
 			if (map[y][x] == 129)
 			{
+				G_BOSS_COUNT++;//ここでボスの出現数カウントを計上しておく
 				base.push_back(make_unique<CSpawnPoint>(p,1,this));//仮ボス設置
 			}
 		}

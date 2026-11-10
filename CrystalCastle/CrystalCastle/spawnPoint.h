@@ -8,7 +8,7 @@ public:
 
 	int Action(const ObjList&, ObjList&);
 	void Draw();
-
+	void Destroy();//íœ
 	int EnemyNo{ 0 };//oŒ»‚·‚é“G‚Ìí—Ş
 
 	bool enemyAlive{ false };//“G‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚Ìƒtƒ‰ƒO

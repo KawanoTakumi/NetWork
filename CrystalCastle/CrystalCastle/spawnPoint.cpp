@@ -51,3 +51,11 @@ void CSpawnPoint::Draw()
 {
 
 }
+
+void CSpawnPoint::Destroy()
+{
+	this->FLAG = false;
+	//ボスの出現カウントを減らす
+	if(G_BOSS_COUNT > 0)
+	G_BOSS_COUNT--;
+}

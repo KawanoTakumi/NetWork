@@ -29,9 +29,9 @@ constexpr auto CHIP_SIZE_X = 32;
 constexpr auto CHIP_SIZE_Y = 32;
 constexpr auto WEAPON_SIZE = 5;//武器数・・・武器の画像横の個数ー１
 
-//グローバルスコア
+//グローバル変数
 extern int G_SCORE;//全プレイヤー共通のスコア
-
+extern int G_BOSS_COUNT;//ボスの共通カウント
 //2D用
 struct Point {
 	float x, y;
