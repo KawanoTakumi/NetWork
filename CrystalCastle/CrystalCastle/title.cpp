@@ -4,7 +4,7 @@
 #include "game.h"
 
 CTitle::CTitle(CManager* p) :CScene(p) {
-
+	title_img = LoadGraph("image//Title_new.png");
 }
 
 int CTitle::UpDate() {
@@ -15,8 +15,8 @@ int CTitle::UpDate() {
 }
 
 void CTitle::Draw() {
-	SetFontSize(64);
-	DrawFormatString(WINDOW_WIDTH / 2 - 200, 150, 0xffffff, "CrystalCastle");
+	DrawGraph(0, 0, title_img, true);
+	SetFontSize(32);
+	DrawFormatString(WINDOW_WIDTH / 2 - 150, WINDOW_HEIGHT / 2 + 50, 0x000000, "GameStartÅFENTER");
 	SetFontSize(16);
-	DrawFormatString(WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT / 2, 0xffffff, "GameStartÅFENTER");
 }

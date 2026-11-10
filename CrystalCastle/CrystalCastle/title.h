@@ -15,4 +15,6 @@ public:
 
 	int UpDate();//更新処理
 	void Draw();//描画処理
+
+	int title_img{ -1 };//タイトル画像
 };
