@@ -33,7 +33,7 @@ void NPCBase::HomingPlayer()
 }
 
 //弾丸発射
-void NPCBase::Shoot(ObjList& add_base,PROJ_ID _id,int _no)
+void NPCBase::Shoot(ObjList& add_base,PROJ_ID _id,int _no,bool _reverse)
 {
 	//プレイヤーがいない場合は終了
 	if (target == nullptr)return;
@@ -42,11 +42,11 @@ void NPCBase::Shoot(ObjList& add_base,PROJ_ID _id,int _no)
 		shoot_vec.x = target->pos.x - pos.x,
 		shoot_vec.y = target->pos.y - pos.y
 	};
-	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map,(int)_id,_no));
+	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map,(int)_id,_no,_reverse));
 }
 
 //弾丸扇発射
-void NPCBase::Mul_Shoot(ObjList& add_base, float _angle, int _count,PROJ_ID _id,int _no)
+void NPCBase::Mul_Shoot(ObjList& add_base, float _angle, int _count,PROJ_ID _id,int _no,bool _reverse)
 {
 	if (target == nullptr)return;
 
@@ -62,14 +62,15 @@ void NPCBase::Mul_Shoot(ObjList& add_base, float _angle, int _count,PROJ_ID _id,
 		Vector right_Vec = Vector_Rotation(shoot_vec, _angle);
 		Vector left_Vec = Vector_Rotation(shoot_vec, -_angle);
 		_angle += _angle;
-		add_base.push_back(make_unique<CEnemyProjectile>(pos, right_Vec, map,(int)_id,_no));
-		add_base.push_back(make_unique<CEnemyProjectile>(pos, left_Vec, map,(int)_id,_no));
+		add_base.push_back(make_unique<CEnemyProjectile>(pos, right_Vec, map,(int)_id,_no,_reverse));
+		add_base.push_back(make_unique<CEnemyProjectile>(pos, left_Vec, map,(int)_id,_no,_reverse));
 
 	}
 	//中央の弾丸発射
-	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map, (int)_id,_no));
+	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map, (int)_id,_no, _reverse));
 }
 
+//ビーム配列型発射
 void NPCBase::Beam_Shoot(ObjList& add_base, int count, PROJ_ID _id,int _no)
 {
 	//プレイヤーがいない場合は終了
@@ -81,12 +82,12 @@ void NPCBase::Beam_Shoot(ObjList& add_base, int count, PROJ_ID _id,int _no)
 	};
 	//最初の弾丸
 	Vector shoot_v = Vector_Normalize(shoot_vec);
-	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map, (int)_id,_no));
+	add_base.push_back(make_unique<CEnemyProjectile>(pos, shoot_vec, map, (int)_id,_no,false));
 	
 	//後続の弾丸
 	for (int i = 0;i < count;i++)
 	{
 		Point add_p{ pos.x + shoot_v.x * (32 * i),pos.y + shoot_v.y * (32 * i) };
-		add_base.push_back(make_unique<CEnemyProjectile>(add_p, shoot_vec, map, (int)_id,_no));
+		add_base.push_back(make_unique<CEnemyProjectile>(add_p, shoot_vec, map, (int)_id,_no,false));
 	}
 }

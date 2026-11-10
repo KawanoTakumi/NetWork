@@ -118,7 +118,7 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 		}
 		else if (shoot_count >= 2 && shoot_count < 4)
 		{
-			Mul_Shoot(add_base, 30, 2, NPCBase::PROJ_ID::BULLET,1);
+			Mul_Shoot(add_base, 30, 2, NPCBase::PROJ_ID::BULLET,1,false);
 		}
 		else
 			shoot_count = 0;

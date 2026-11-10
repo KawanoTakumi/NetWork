@@ -1,38 +1,38 @@
-﻿  EnemyProjectile.cpp
+﻿  EnemyBase.cpp
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(38,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(38,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(55,9): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(55,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(52,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(52,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(68,10): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(68,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(65,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(65,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(114,45): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
 C:\Users\takum\Desktop\net\CrystalCastle\CrystalCastle\objBase.h(115,47): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'EnemyProjectile.cpp' をコンパイルしています)
+  (ソース ファイル 'EnemyBase.cpp' をコンパイルしています)
   
   CrystalCastle.vcxproj -> C:\Users\takum\Desktop\net\CrystalCastle\x64\Debug\CrystalCastle.exe

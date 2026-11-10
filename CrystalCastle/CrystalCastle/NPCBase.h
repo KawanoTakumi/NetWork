@@ -23,10 +23,9 @@ public:
 
 	void UpdateDir(Point);	//向き更新
 	void HomingPlayer();//プレイヤー追尾
-	void Shoot(ObjList&,PROJ_ID,int);//弾丸発射(ID)
-	void Mul_Shoot(ObjList&, float, int,PROJ_ID,int);//弾丸扇発射(角度、回数)
-	void Beam_Shoot(ObjList&, int, PROJ_ID,int);
-
+	void Shoot(ObjList&,PROJ_ID,int,bool);//弾丸発射(ID.No,反転)
+	void Mul_Shoot(ObjList&, float, int,PROJ_ID,int,bool);//弾丸扇発射(角度量、回数、弾丸ID、弾丸No、反転)
+	void Beam_Shoot(ObjList&, int, PROJ_ID,int);//ビーム発射(回数,弾丸ID、弾丸No、反転)
 #pragma endregion
 
 #pragma region 定数

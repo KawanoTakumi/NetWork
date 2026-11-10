@@ -1,13 +1,14 @@
 #include "EnemyProjectile.h"
 #include "function.h"
 #include "player.h"
-CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map,int _id,int _no)
+CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map,int _id,int _no,bool _reverse)
 {
 	pos = _pos;
 	vec = Vector_SetLength(_vec, 6.0f);//‰¼
 	HP(1);
 	map = _map;
 	proj_id = _id;
+	is_reverse = _reverse;
 	sprite.img = Resource::enemy_projectile_Img;
 	sprite.cutX = _no*32;//No–ˆ‚É’e‚Ì‰æ‘œ‚ğ•Ï‚¦‚é
 	sprite.cutY = _id*32;//ID–ˆ‚É’e‚Ìí—Ş‚ğ•Ï‚¦‚é
@@ -24,19 +25,16 @@ int CEnemyProjectile::Action(const ObjList& base,ObjList& add_base)
 	{
 	default:
 		break;
+	//’¼i
 	case 0:case 1:
 	{
 		pos = Add_Point_Vector(pos, vec);
-
 		//•Ç‚ğŠÑ’Ê‚µ‚È‚¢
 		if (!map->CanMove(pos, 32, 32))
 			FLAG = false;
 	}break;
-	
 
 	}
-
-
 
 	//ˆê’èŠÔŒo‰ß‚µ‚½‚çÁ‚·
 	life--;

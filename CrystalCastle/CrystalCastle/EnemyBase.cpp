@@ -111,11 +111,13 @@ int EnemyBase::Action(const ObjList& base, ObjList& add_base)
 	shoot_timer--;
 	if (shoot_timer < 0)
 	{
-		if(shoot_count < 2)
-			Shoot(add_base,NPCBase::PROJ_ID::BULLET,0);
+		if (shoot_count < 3)
+		{
+			Shoot(add_base, NPCBase::PROJ_ID::BULLET, 2,false);
+		}
 		else
 		{
-			Mul_Shoot(add_base,15,1, NPCBase::PROJ_ID::BULLET,0);
+			Mul_Shoot(add_base,3,2, NPCBase::PROJ_ID::BULLET,2,false);
 			shoot_count = 0;
 		}
 		shoot_timer = MAX_SHOOT_TIMER;
