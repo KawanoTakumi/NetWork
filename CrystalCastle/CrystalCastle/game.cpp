@@ -78,8 +78,10 @@ int CGame::UpDate(){
 	//“–‚½‚è”»’èˆ—
 	CollisionUpDate(base);
 
+	bool a = false;
 	//ƒNƒŠƒA”»’è
-	if (G_BOSS_COUNT <= 0)
+	//if (G_BOSS_COUNT <= 0)
+	if (CheckHitKey(KEY_INPUT_1))
 	{
 		manager->Scene_Change(make_unique<CClear>(manager));
 	}

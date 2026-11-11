@@ -7,6 +7,7 @@ CClear::CClear(CManager* p) :CScene(p) {
 }
 
 int CClear::UpDate() {
+
 	return 0;
 }
 
