@@ -194,12 +194,16 @@ void CPlayer::GetEXP(int _exp)
 }
 
 //レベル計算
-void CPlayer::GetLevel(int exp) 
+void CPlayer::GetLevel(int _exp) 
 {
-	if (exp > lv * 10) {
+	if (_exp > lv * 10) {
 		lv++;
 		//lv99でカンスト
-		if (lv > 99) return;
+		if (lv > 99) {
+			lv = 99;
+			exp = lv * 10;
+			return;
+		}
 		maxHp = lv * 5 + 10;
 		hp = maxHp;
 		base_damage = lv * 1.2 + 1;
