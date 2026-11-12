@@ -31,6 +31,7 @@ constexpr auto WEAPON_SIZE = 5;//武器数・・・武器の画像横の個数ー１
 
 //グローバル変数
 extern int G_SCORE;//全プレイヤー共通のスコア
+extern int G_HIGH_SCORE;//全プレイヤーの共通最高スコア
 extern int G_BOSS_COUNT;//ボスの共通カウント
 //2D用
 struct Point {

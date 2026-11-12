@@ -84,6 +84,7 @@ int CGame::UpDate(){
 	if (CheckHitKey(KEY_INPUT_1))
 	{
 		manager->Scene_Change(make_unique<CClear>(manager));
+		return 0;
 	}
 
 

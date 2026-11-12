@@ -10,6 +10,7 @@ CTitle::CTitle(CManager* p) :CScene(p) {
 int CTitle::UpDate() {
 	if (CheckHitKey(KEY_INPUT_RETURN)) {
 		manager->Scene_Change(make_unique<CGame>(manager));
+		return 0;
 	}
 	return 0;
 }
