@@ -8,6 +8,8 @@ class CClear :public CScene
 {
 private:
 	bool score_update{ false };
+	int check_img{ -1 };
+	int cross_img{ -1 };
 public:
 	//コンストラクタ
 	CClear(CManager*);
