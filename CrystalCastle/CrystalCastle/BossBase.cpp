@@ -15,7 +15,7 @@ BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 	sprite.width = ImgWidth = 64;
 	sprite.height = ImgHeight = 64;
 
-	HP(100);//HP初期化
+	HP(100+Range_Random_Number(1,20));//HP初期化
 
 	//スポーン位置保存
 	spawn = _sp;
@@ -83,19 +83,6 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 			case 3: vec.x = -move_speed; vec.y = 0; break;//左
 			}
 		}
-		//アニメーション
-		//animTimer++;
-		//if (animTimer >= 15)
-		//{
-		//	animTimer = 0;
-		//	animFrame++;
-		//	if (animFrame > 1)
-		//		animFrame = 0;
-		//}
-		//sprite.cutX = animFrame * sprite.width + (No * 64);
-
-		//if (Dir == LEFT || Dir == RIGHT) sprite.cutY = 32;
-		//if (Dir == UP || Dir == DOWN) sprite.cutY = 0;
 
 	}
 	HomingPlayer();
@@ -113,11 +100,18 @@ int BossBase::Action(const ObjList& base, ObjList& add_base)
 	{
 		if (shoot_count < 2)
 		{
+			if(No==0)
 			Beam_Shoot(add_base,7,NPCBase::PROJ_ID::BEAM,0);
+			else if(No==1)
+			Beam_Shoot(add_base, 7, NPCBase::PROJ_ID::BEAM, 2);
 		}
 		else if (shoot_count >= 2 && shoot_count < 4)
 		{
+			if (No == 0)
 			Mul_Shoot(add_base, 30, 2, NPCBase::PROJ_ID::BULLET,1,false);
+			else if (No == 1)
+			Mul_Shoot(add_base, 30, 4, NPCBase::PROJ_ID::BULLET, 7, false);
+
 		}
 		else
 			shoot_count = 0;

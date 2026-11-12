@@ -36,7 +36,7 @@ int CSpawnPoint::Action(const ObjList& base, ObjList& add_base)
 				add_base.push_back(make_unique<EnemyBase>(pos, map,this,Range_Random_Number(0,5)));
 				break;
 			case 1:
-				add_base.push_back(make_unique<BossBase>(pos, map, this,0));
+				add_base.push_back(make_unique<BossBase>(pos, map, this,Range_Random_Number(0,1)));
 				break;
 			}
 			enemyAlive = true;

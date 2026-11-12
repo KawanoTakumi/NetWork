@@ -44,6 +44,10 @@ void CollisionUpDate(ObjList& base) {
 				Enemy_Weapon_Collison(a, b);
 			}
 
+			//ìGÇ∆ìG
+			if (a->ID == (int)ObjID::ENEMY && b->ID == (int)ObjID::ENEMY) {
+				Enemy_Enemy_Collison(a, b);
+			}
 			/*
 			ó·Åj
 			IDÇ™PLAYERÇ∆ENEMYÇÃèÍçá
@@ -207,5 +211,28 @@ void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b)
 	{
 
 	}break;
+	}
+}
+
+void Enemy_Enemy_Collison(BaseVector* a, BaseVector* b)
+{
+	if (HitCheck_Box2(a, b))
+	{
+		CDamageObj* enemy_a = dynamic_cast<CDamageObj*>(a);
+		CDamageObj* enemy_b = dynamic_cast<CDamageObj*>(b);
+		Vector v_a{
+			a->pos.x - b->pos.x,
+			a->pos.y - b->pos.y
+		};
+
+		Vector v_b{
+			b->pos.x - a->pos.x,
+			b->pos.y - a->pos.y
+		};
+		v_a = Vector_SetLength(v_a, 1);
+		v_b = Vector_SetLength(v_b, 1);
+		enemy_a->Damage(0, v_a);
+		enemy_b->Damage(0, v_b);
+
 	}
 }

@@ -18,3 +18,6 @@ void Player_Item_Collision(BaseVector* a, BaseVector* b);
 
 //“G‚Æ•Ší
 void Enemy_Weapon_Collison(BaseVector* a, BaseVector* b);
+
+//“G‚Æ“G
+void Enemy_Enemy_Collison(BaseVector* a, BaseVector* b);

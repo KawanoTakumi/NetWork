@@ -17,6 +17,8 @@ CEnemyProjectile::CEnemyProjectile(Point _pos,Vector _vec,CMap* _map,int _id,int
 	sprite.angle = atan2(vec.y, vec.x);
 	ID = (int)ObjID::ENEMY_PROJ;
 	pri = 5;
+	if (_id == 1)
+		life = 80.0f;
 }
 
 int CEnemyProjectile::Action(const ObjList& base,ObjList& add_base)
@@ -26,7 +28,14 @@ int CEnemyProjectile::Action(const ObjList& base,ObjList& add_base)
 	default:
 		break;
 	//’¼i
-	case 0:case 1:
+	case 0:
+	{
+		pos = Add_Point_Vector(pos, vec);
+		//•Ç‚ðŠÑ’Ê‚µ‚È‚¢
+		if (!map->CanMove(pos, 32, 32))
+			FLAG = false;
+	}break;
+	case 1:
 	{
 		pos = Add_Point_Vector(pos, vec);
 		//•Ç‚ðŠÑ’Ê‚µ‚È‚¢

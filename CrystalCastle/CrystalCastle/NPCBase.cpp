@@ -87,7 +87,7 @@ void NPCBase::Beam_Shoot(ObjList& add_base, int count, PROJ_ID _id,int _no)
 	//Œã‘±‚Ì’eŠÛ
 	for (int i = 0;i < count;i++)
 	{
-		Point add_p{ pos.x + shoot_v.x * (32 * i),pos.y + shoot_v.y * (32 * i) };
+		Point add_p{ pos.x - shoot_v.x * (32 * i),pos.y - shoot_v.y * (32 * i) };
 		add_base.push_back(make_unique<CEnemyProjectile>(add_p, shoot_vec, map, (int)_id,_no,false));
 	}
 }
