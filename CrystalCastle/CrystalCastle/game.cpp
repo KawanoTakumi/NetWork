@@ -9,9 +9,6 @@
 #include "TreasureBaseItem.h"
 #include "WeaponBaseItem.h"
 
-int G_SCORE = 0;
-int G_BOSS_COUNT = 0;
-
 //コンストラクタ
 CGame::CGame(CManager* p) :CScene(p){
 	//画像読み込み
@@ -83,6 +80,7 @@ int CGame::UpDate(){
 	//if (G_BOSS_COUNT <= 0)
 	if (CheckHitKey(KEY_INPUT_1))
 	{
+		G_SCORE = 10;
 		manager->Scene_Change(make_unique<CClear>(manager));
 		return 0;
 	}

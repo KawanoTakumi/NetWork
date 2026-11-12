@@ -6,6 +6,8 @@
 
 class CClear :public CScene
 {
+private:
+	bool score_update{ false };
 public:
 	//コンストラクタ
 	CClear(CManager*);

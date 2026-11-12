@@ -3,6 +3,10 @@
 #include "Resource.h"
 #include "game.h"
 
+int G_SCORE = 0;
+int G_HIGH_SCORE = 0;
+int G_BOSS_COUNT = 0;
+
 CTitle::CTitle(CManager* p) :CScene(p) {
 	title_img = LoadGraph("image//Title_new.png");
 }
