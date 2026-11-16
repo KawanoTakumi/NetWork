@@ -7,7 +7,7 @@
 
 BossBase::BossBase(Point p, CMap* _map, CSpawnPoint* _sp, int _No)
 {
-	sprite.img = Resource::enemy_boss_01Img;
+	sprite.img = Resource::Boss_Img;
 	No = _No;
 	sprite.cutX = No * 64;
 	sprite.cutY = 0;

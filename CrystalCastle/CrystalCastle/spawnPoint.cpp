@@ -3,14 +3,15 @@
 #include "EnemyBase.h"
 #include "BossBase.h"
 
-CSpawnPoint::CSpawnPoint(Point p, int no,CMap* _map) {
-	sprite.img = Resource::mapImg;
+CSpawnPoint::CSpawnPoint(Point p, int no,int _id,CMap* _map) {
+	sprite.img = Resource::map_cave_Img;
 
 	//座標をオブジェクトの中心に修正
 	pos.x = p.x + CHIP_SIZE_X / 2;
 	pos.y = p.y + CHIP_SIZE_Y / 2;
 
 	EnemyNo = no;
+	id = _id;
 	map = _map;
 }
 
@@ -36,7 +37,7 @@ int CSpawnPoint::Action(const ObjList& base, ObjList& add_base)
 				add_base.push_back(make_unique<EnemyBase>(pos, map,this,Range_Random_Number(0,5)));
 				break;
 			case 1:
-				add_base.push_back(make_unique<BossBase>(pos, map, this,Range_Random_Number(0,1)));
+				add_base.push_back(make_unique<BossBase>(pos, map, this,id));
 				break;
 			}
 			enemyAlive = true;

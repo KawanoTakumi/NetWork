@@ -24,7 +24,7 @@ vector<string> split(string& input, char delimiter)
 //コンストラクタ
 CMap::CMap() {
 	//マップチップ画像
-	img = Resource::mapImg;
+	img = Resource::map_cave_Img;
 
 	//マップ配列初期化
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
@@ -77,23 +77,25 @@ void CMap::Map_Create(ObjList& base) {
 			//敵出現ポイント
 			if (map[y][x] == 126)
 			{
-				base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
+				base.push_back(make_unique<CSpawnPoint>(p,0,0,this));//敵
 			}
 		}
 	}
 
 	//固定生成(ボス)
 	Point p{ 84 * CHIP_SIZE_X,67 * CHIP_SIZE_Y };
-	base.push_back(make_unique<CSpawnPoint>(p, 0, this));//魔王
+	base.push_back(make_unique<CSpawnPoint>(p, 1,0, this));//魔王
 
 	p = {149 * CHIP_SIZE_X,76 * CHIP_SIZE_Y};
-	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//人参
+	base.push_back(make_unique<CSpawnPoint>(p, 1,1, this));//人参
 
 	p = { 139 * CHIP_SIZE_X,13 * CHIP_SIZE_Y };
-	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//もとふじ
+	base.push_back(make_unique<CSpawnPoint>(p, 1,1, this));//もとふじ
 
 	p = { 227 * CHIP_SIZE_X,87 * CHIP_SIZE_Y };
-	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//かわの
+	base.push_back(make_unique<CSpawnPoint>(p, 1,1,this));//かわの
+
+	G_BOSS_COUNT = 4;
 
 	//メモ
 	//x=84    y=67   ・・魔王みたいなやつ
@@ -161,7 +163,7 @@ bool CMap::CanMove(Point p, int width, int height) {
 //指定したマップチップが壁かどうかを判定
 bool CMap::IsWall(int chip)
 {
-	return (chip >= 192);
+	return (chip >= 168);
 }
 
 //マップ描画
@@ -183,12 +185,11 @@ void CMap::Draw() {
 				(chip / NEXT_LINE) * CHIP_SIZE_Y,
 				CHIP_SIZE_X,
 				CHIP_SIZE_Y,
-				Resource::map_cave_Img,
+				img,
 				true,
 				false
 			);
 		}
 	}
 
-	DrawFormatString(WINDOW_HEIGHT / 2, 16, 0xffffff, "%d,%d", BaseChipNoX, BaseChipNoY);
 }
