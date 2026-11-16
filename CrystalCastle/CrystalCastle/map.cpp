@@ -39,7 +39,7 @@ CMap::CMap() {
 
 	//マップデータ読み込み(後でメンバー関数化）
 	int stage = 1;
-	ifstream fp("image\\test_map.txt");
+	ifstream fp("image\\crystalcastle_tiled.txt");
 	string str;
 
 	if (!fp.fail()) {
@@ -66,6 +66,10 @@ CMap::CMap() {
 
 //特殊ブロック生成
 void CMap::Map_Create(ObjList& base) {
+
+	//敵スポーンポイント
+
+	//ランダム生成
 	for (int y = 0; y < MAP_CHIP_Y; y++) {
 		for (int x = 0; x < MAP_CHIP_X; x++) {
 
@@ -73,21 +77,29 @@ void CMap::Map_Create(ObjList& base) {
 			//敵出現ポイント
 			if (map[y][x] == 126)
 			{
-				//base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
-
-				//デバッグ用
-				G_BOSS_COUNT++;//ここでボスの出現数カウントを計上しておく
-				base.push_back(make_unique<CSpawnPoint>(p, 1, this));//仮ボス設置
-
-			}
-			//ボス出現ポイント
-			if (map[y][x] == 129)
-			{
-				G_BOSS_COUNT++;//ここでボスの出現数カウントを計上しておく
-				base.push_back(make_unique<CSpawnPoint>(p,1,this));//仮ボス設置
+				base.push_back(make_unique<CSpawnPoint>(p,0,this));//敵
 			}
 		}
 	}
+
+	//固定生成(ボス)
+	Point p{ 84 * CHIP_SIZE_X,67 * CHIP_SIZE_Y };
+	base.push_back(make_unique<CSpawnPoint>(p, 0, this));//魔王
+
+	p = {149 * CHIP_SIZE_X,76 * CHIP_SIZE_Y};
+	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//人参
+
+	p = { 139 * CHIP_SIZE_X,13 * CHIP_SIZE_Y };
+	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//もとふじ
+
+	p = { 227 * CHIP_SIZE_X,87 * CHIP_SIZE_Y };
+	base.push_back(make_unique<CSpawnPoint>(p, 1, this));//かわの
+
+	//メモ
+	//x=84    y=67   ・・魔王みたいなやつ
+	//x=149   y=76   ・・にんじんみたいなやつ
+	//x=139   y=13   ・・もとふじの顔みたいなやつ
+	//x=227   y=87   ・・かわのの顔みたいなやつ
 }
 
 //マップ更新

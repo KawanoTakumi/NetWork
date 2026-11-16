@@ -39,7 +39,7 @@ void Resource::Load()
 	weaponImg        = LoadGraph("image\\weapon_image.png");//テスト用武器画像
 	magicImg         = LoadGraph("image\\TestMagic.png");//テスト用魔法弾
 	treasure_Img     = LoadGraph("image\\TreasureItem.png");
-	map_cave_Img     = LoadGraph("image\\Tile_Caves.png");
+	map_cave_Img     = LoadGraph("image\\Tile_Caves_mod.png");
 }
 //画像削除
 void Resource::Release() {
