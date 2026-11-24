@@ -7,6 +7,8 @@
 
 #include "map.h"
 
+#include "client.h"
+
 
 class CGame :public CScene
 {
@@ -14,6 +16,8 @@ private:
 	const int MAX_TREASURE_COUNT = 100;//宝物を生成する最大値
 
 public:
+	//クライアントクラス
+	CClient client;
 	//オブジェクト
 	ObjList base;
 	//マップオブジェクト

@@ -9,6 +9,11 @@
 #include "TreasureBaseItem.h"
 #include "WeaponBaseItem.h"
 
+IPDATA IP_set();//ip入力用の関数
+IPDATA ip;//接続先のipアドレス
+
+int timer{ 0 };
+
 //コンストラクタ
 CGame::CGame(CManager* p) :CScene(p){
 	//画像読み込み
@@ -55,11 +60,32 @@ CGame::CGame(CManager* p) :CScene(p){
 	//特殊ブロック生成
 	map->Map_Create(base);//特殊マップオブジェクト（リスポーン位置）
 
+	//接続先のipアドレス設定
+	ip = IP_set();
+
+	//接続処理
+	int time{ 5 };
+	while (time > 0) {
+		//接続するまでループ
+		//ネットワークハンドルの取得
+		if (client.Connect(ip))break;//接続処理
+		ClearDrawScreen();
+		time--;
+		drawText(0, 0, 0xffffff, "接続中・・・%d", time, 30);
+		ScreenFlip();
+	}
 }
 
 //更新処理
 int CGame::UpDate(){
 	ObjList add_list;//追加処理用オブジェクトリスト
+
+	//データの送信
+	timer++;
+	if (timer >= 3) {
+		client.Send(base);
+		timer = 0;
+	}
 
 	//マップ更新
 	map->Map_Update(base, add_list);

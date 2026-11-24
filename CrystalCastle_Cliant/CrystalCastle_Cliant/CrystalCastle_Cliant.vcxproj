@@ -159,6 +159,7 @@
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="2D_function.h" />
     <ClInclude Include="clear.h" />
+    <ClInclude Include="client.h" />
     <ClInclude Include="EnemyProjectile.h" />
     <ClInclude Include="expItem.h" />
     <ClInclude Include="healitem.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="magic.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="NetData.h" />
     <ClInclude Include="NPCBase.h" />
     <ClInclude Include="objBase.h" />
     <ClInclude Include="objChar.h" />
@@ -197,6 +199,7 @@
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="2D_function.cpp" />
     <ClCompile Include="clear.cpp" />
+    <ClCompile Include="client.cpp" />
     <ClCompile Include="EnemyProjectile.cpp" />
     <ClCompile Include="expItem.cpp" />
     <ClCompile Include="CollisionUpDate.cpp" />

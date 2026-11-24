@@ -35,6 +35,7 @@ enum class PlayerState
 //オブジェクトID
 enum class ObjID {
 	PLAYER,
+	NETPLAYER,
 	WEAPON,
 	ENEMY,
 	ENEMY_PROJ,

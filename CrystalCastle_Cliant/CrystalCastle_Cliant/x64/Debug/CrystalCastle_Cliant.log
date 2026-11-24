@@ -1,0 +1,81 @@
+﻿  client.cpp
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(38,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(38,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(55,9): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(55,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(52,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(52,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(68,10): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(68,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(65,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(65,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(114,45): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(115,47): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'client.cpp' をコンパイルしています)
+  
+  game.cpp
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(38,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(38,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(55,9): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(55,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(52,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(52,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(68,10): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(68,5): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(65,7): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(65,4): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(114,45): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\objBase.h(115,47): warning C4244: 'return': 'double' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'game.cpp' をコンパイルしています)
+  
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\game.cpp(32,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\game.cpp(33,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\game.cpp(48,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\game.cpp(49,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\CrystalCastle_Cliant\game.cpp(119,37): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  コードを生成中...
+  CrystalCastle_Cliant.vcxproj -> C:\Users\RiTe2\OneDrive\Desktop\network\CrystalCastle_Cliant\x64\Debug\CrystalCastle_Cliant.exe

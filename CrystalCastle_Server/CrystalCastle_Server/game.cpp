@@ -61,6 +61,16 @@ CGame::CGame(CManager* p) :CScene(p){
 int CGame::UpDate(){
 	ObjList add_list;//追加処理用オブジェクトリスト
 
+	//データ受信チェック
+	server.Receive();
+
+	//接続処理
+	if (server.Accept(40))
+	{
+		//新しい接続処理
+		server.New_Receive(add_list, server.netHandle, map.get());
+	}
+
 	//マップ更新
 	map->Map_Update(base, add_list);
 
@@ -112,6 +122,13 @@ void CGame::Draw()
 
 	//デバッグ用
 	DrawFormatString(240, 0, GetColor(255, 255, 255), "Boss_Count = %d", G_BOSS_COUNT);
+
+	IPDATA IP;
+	//起動端末のIPアドレス取得
+	GetMyIPAddress(&IP, 1, NULL);
+	DrawFormatString(0, WINDOW_HEIGHT - 20, 0xffffff,
+		"この端末のIPアドレス %d:%d:%d:%d",
+		IP.d1, IP.d2, IP.d3, IP.d4);
 }
 
 CGame::~CGame()

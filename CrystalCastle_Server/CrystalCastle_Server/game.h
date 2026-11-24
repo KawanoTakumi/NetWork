@@ -7,6 +7,7 @@
 
 #include "map.h"
 
+#include "server.h"
 
 class CGame :public CScene
 {
@@ -14,6 +15,9 @@ private:
 	const int MAX_TREASURE_COUNT = 100;//宝物を生成する最大値
 
 public:
+	//サーバークラスの宣言
+	CServer server;
+
 	//オブジェクト
 	ObjList base;
 	//マップオブジェクト
